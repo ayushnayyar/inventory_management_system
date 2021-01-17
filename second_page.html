@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>View Or Create Form</title>
+    <style>
+    	*{
+        padding:  0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body{
+        background: #FFFFFF;
+      }
+      .button{
+        background-color: #77FFDE;
+        padding: 5px 18px;
+        color: black;
+        border-radius: 5px;
+        width: 200px;
+      }
+      .button:hover{
+        background-color: #1fc29b;
+      }
+      .button1{
+        background-color: #77FFDE;
+        padding: 5px 18px;
+        color: black;
+        border-radius: 5px;
+        width: 232px;
+      }
+      .button2{
+        background-color: #1ED5FE;
+        padding: 5px 10px;
+        color: black;
+        border-radius: 2px;
+        width: 115px;
+      }
+      .button2:hover{
+        background-color: #10a5c7;
+      }
+      .button3{
+        background-color: #77FFDE;
+        padding: 5px 18px;
+        color: black;
+        border-radius: 5px;
+        width: 210px;
+      }
+      .button3:hover{
+        background-color: #1fc29b;
+      }
+      .topright {
+        position: absolute;
+        font-size: 18px;
+        font-size: 40px;
+        top: 16px;
+        right: 80px;
+      }
+      span{ 
+        display: inline-block; 
+        width: 1395px; 
+        height: 500px; 
+        background-color: #FFFFFF; 
+        margin-top: 30px;
+        margin-left: 15px;
+      } 
+      .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+    	<div class="px-5 pt-3">
+          <div class="col-lg-2">
+              <button type="button" class="btn1 mb-2 button pl-3"><i class="fa fa-angle-down"></i>Generate Report</button>
+          </div>
+          <div class="col-lg-13">
+              <i class="fa fa-user-circle topright"></i>
+          </div>
+      </div>
+
+      <div class="px-5">
+        <button type="button" class="button1" style="margin-left:16px; margin-right: 150px; margin-top: 30px;"><i class="fa fa-wrench"></i>Materials</button> 
+        <button type="button" class="button1" style="margin-right: 150px; margin-top: 30px;"><i class="fa fa-users"></i>Vendors</button> 
+        <button type="button" class="button1" style="margin-right: 150px; margin-top: 30px;"><i class="fa fa-folder"></i>Orders</button> 
+        <button type="button" class="button1" style="margin-right: 16px; margin-top: 30px;"><i class="fa fa-exchange"></i>Transactions</button> 
+      </div>
+
+      <div class="px-5 btn-group">
+        <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="View All Materials" style="margin-left:16px; margin-top: 0px;"><i class="fa fa-list"></i>View</button> 
+        <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="Create New Material Entry" style="margin-left: 0px; margin-top: 0px;"><i class="fa fa-plus-circle"></i>Create</button> 
+      </div>
+      <div class="px-5 btn-group">
+        <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="View All Vendors" style="margin-left: 57px; margin-top: 0px;"><i class="fa fa-list"></i>View</button>
+        <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="Create New Vendor Entry" style="margin-left: 0px; margin-top: 0px;"><i class="fa fa-plus-circle"></i>Create</button> 
+      </div>
+      <div class="px-5 btn-group">
+        <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="View All Orders" style="margin-left:57px; margin-top: 0px;"><i class="fa fa-list"></i>View</button> 
+        <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="Create New Order Entry" style="margin-left: 0px; margin-top: 0px;"><i class="fa fa-plus-circle"></i>Create</button> 
+      </div>
+      <div class="px-5 btn-group">
+        <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="View All Trasactions" style="margin-left:56px; margin-top: 0px;"><i class="fa fa-list"></i>View</button> 
+        <button type="button" class="button2" data-toggle="tooltip" data-placement="bottom" title="Create New Transaction Entry" style="margin-left: 0px; margin-top: 0px;"><i class="fa fa-plus-circle"></i>Create</button> 
+      </div>
+
+      <div class="px-5">
+        <div class="col-lg-13">
+            <span class="border border-primary">
+            <button type="button" class="btn1 mb-2 button3 vertical-center">Click on View or Create</button>
+            </span>
+          </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
