@@ -132,13 +132,13 @@
             <!-- Heading -->
             <!-- <h6 class="navbar-heading text-muted">Documentation</h6> -->
             <!-- Navigation -->
-            <!-- <ul class="navbar-nav mb-md-3">
+            <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
                     <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/getting-started/overview.html">
-                        <i class="ni ni-spaceship"></i> Getting started
+                        <i class="ni ni-spaceship"></i> Generate Report
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/foundation/colors.html">
                         <i class="ni ni-palette"></i> Foundation
                     </a>
@@ -147,8 +147,8 @@
                     <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/components/alerts.html">
                         <i class="ni ni-ui-04"></i> Components
                     </a>
-                </li>
-            </ul> -->
+                </li> -->
+            </ul>
         </div>
     </div>
 </nav>
