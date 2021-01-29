@@ -39,16 +39,16 @@
                     @if (!Auth::guest())                    
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('addvendor') }}">{{ __('Vendors') }}</a>
+                                <a class="nav-link" href="{{ route('vendor') }}">{{ __('Vendors') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('addvendor') }}">{{ __('Materials') }}</a>
+                                <a class="nav-link" href="{{ route('material') }}">{{ __('Materials') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('addvendor') }}">{{ __('Orders') }}</a>
+                                <a class="nav-link" href="{{ route('order') }}">{{ __('Orders') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('addvendor') }}">{{ __('Transactions') }}</a>
+                                <a class="nav-link" href="{{ route('transaction') }}">{{ __('Transactions') }}</a>
                             </li>
                         </ul>
                     @else 

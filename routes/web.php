@@ -23,8 +23,28 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/vendor', function(){
     return view('vendor/vendor');
-});
+})->name('vendor');
 
 Route::get('/addvendor',function(){
     return view('vendor/addVendor');
 })->name('addvendor');
+
+Route::get('/material', function(){
+    return view('material/material');
+})->name('material');
+
+Route::get('/addmaterial',function(){
+    return view('material/addMaterial');
+})->name('addmaterial');
+
+Route::get('/order', function(){
+    return view('order/order');
+})->name('order');
+
+Route::get('/addorder',function(){
+    return view('order/addOrder');
+})->name('addorder');
+
+Route::get('/transaction', function(){
+    return view('transaction/transaction');
+})->name('transaction');
