@@ -42,7 +42,7 @@ Route::get('/order', function(){
 })->name('order');
 
 Route::get('/addorder',function(){
-    return view('order/addOrder');
+    return view('order/newOrder');
 })->name('addorder');
 
 Route::get('/transaction', function(){
