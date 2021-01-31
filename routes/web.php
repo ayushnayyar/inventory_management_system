@@ -29,6 +29,8 @@ Route::get('/addvendor',function(){
     return view('vendor/addVendor');
 })->name('addvendor');
 
+Route::post('/vendor/store', [App\Http\Controllers\VendorController::class, 'store'])->name('vendor.store');
+
 Route::get('/material', function(){
     return view('material/material');
 })->name('material');
@@ -36,6 +38,8 @@ Route::get('/material', function(){
 Route::get('/addmaterial',function(){
     return view('material/addMaterial');
 })->name('addmaterial');
+
+Route::post('/material/store', [App\Http\Controllers\MaterialController::class, 'store'])->name('material.store');
 
 Route::get('/order', function(){
     return view('order/order');
