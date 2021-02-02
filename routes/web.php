@@ -21,9 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/vendor', function(){
-    return view('vendor/vendor');
-})->name('vendor');
+Route::get('/vendor',  [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
 
 Route::get('/addvendor',function(){
     return view('vendor/addVendor');
@@ -31,9 +29,7 @@ Route::get('/addvendor',function(){
 
 Route::post('/vendor/store', [App\Http\Controllers\VendorController::class, 'store'])->name('vendor.store');
 
-Route::get('/material', function(){
-    return view('material/material');
-})->name('material');
+Route::get('/material', [App\Http\Controllers\MaterialController::class, 'index'])->name('material');
 
 Route::get('/addmaterial',function(){
     return view('material/addMaterial');

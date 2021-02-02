@@ -14,4 +14,8 @@ class MaterialController extends Controller
         $material->save();
         return view('material.material');
     }
+    public function index(){
+        $materials = Material::all();
+        return view('material.material', compact('materials'));
+    }
 }

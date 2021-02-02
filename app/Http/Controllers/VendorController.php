@@ -15,4 +15,8 @@ class VendorController extends Controller
         $vendor->save();
         return view('vendor.vendor');
     }
+    public function index(){
+        $vendors = Vendor::all();
+        return view('vendor.vendor', compact('vendors'));
+    }
 }
