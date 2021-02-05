@@ -2,18 +2,14 @@
 @section('content')
 <div class="container">
     <h4>new order</h4>
-    <form action="" method="POST">
+    <form action="{{ Route('order.store')}}" method="POST">
     @csrf
         <div class="form-group">
-            <label class='mt-3' for="name">Item Name</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Stock recieved" name="stock">
+            <label class='mt-3' for="name">Enter Stock recieved</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="stock">
         </div>
         <div class="form-group">
-            <label class='mt-3' for="name">Item type</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter " name="current_stock">
-        </div>
-        <div class="form-group">
-            <label class='mt-3' for="name">Weight beam</label>
+            <label class='mt-3' for="name">Weight on beam</label>
             <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="beam">
         </div>
         <div class="form-group">
@@ -23,15 +19,19 @@
         <div class="form-group">
             <label class="mt-3" for="name">select party</label>
             <select name="party_id">
-                <option value="party_id">some_party</option>
-                <option value="party_id">some_party</option>
+                @foreach($vendors as $vendor)
+                <option value="{{ $vendor->id }}">{{$vendor->party_name}}</option>
+                
+                @endforeach
             </select>
         </div>
         <div class="form-group">
             <label class="mt-3" for="name">select material</label>
             <select name="material_id">
-                <option value="material_id">some_material</option>
-                <option value="material_id">some_material</option>
+                @foreach($materials as $material)
+                <option value="{{ $material->id }}">{{ $material->material_name }}</option>
+                
+                @endforeach
             </select>
         </div>
         <input type="submit" class="btn btn-primary mt-3" name="submit">

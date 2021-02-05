@@ -37,13 +37,11 @@ Route::get('/addmaterial',function(){
 
 Route::post('/material/store', [App\Http\Controllers\MaterialController::class, 'store'])->name('material.store');
 
-Route::get('/order', function(){
-    return view('order/order');
-})->name('order');
+Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('order');
 
-Route::get('/addorder',function(){
-    return view('order/newOrder');
-})->name('addorder');
+Route::get('/addorder', [App\Http\Controllers\OrderController::class, 'addOrder'])->name('addorder');
+
+Route::post('/order/store', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 
 Route::get('/transaction', function(){
     return view('transaction/transaction');
