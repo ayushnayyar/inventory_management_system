@@ -28,6 +28,6 @@ class OrderController extends Controller
         $order->party_id = $request->party_id;
         $order->item_id = $request->material_id;
         $order->save();
-        return view('order.order');
+        return redirect()->route('order');
     }
 }

@@ -12,7 +12,7 @@ class MaterialController extends Controller
         $material->material_name = $request->material_name;
         $material->material_type = $request->material_type;
         $material->save();
-        return view('material.material');
+        return redirect()->route('material');
     }
     public function index(){
         $materials = Material::all();

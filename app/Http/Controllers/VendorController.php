@@ -13,7 +13,7 @@ class VendorController extends Controller
         $vendor->gst_no = $request->gst_no;
         $vendor->address = $request->address;
         $vendor->save();
-        return view('vendor.vendor');
+        return redirect()->route('vendor');
     }
     public function index(){
         $vendors = Vendor::all();
