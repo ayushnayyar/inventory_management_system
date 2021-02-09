@@ -37,6 +37,10 @@ Route::get('/addmaterial',function(){
 
 Route::post('/material/store', [App\Http\Controllers\MaterialController::class, 'store'])->name('material.store');
 
+Route::get('/material/edit/{material_id}', [App\Http\Controllers\MaterialController::class, 'edit'])->name('material.edit');
+
+Route::post('/material/update/{material_id}', [App\Http\Controllers\MaterialController::class, 'update'])->name('material.update');
+
 Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('order');
 
 Route::get('/addorder', [App\Http\Controllers\OrderController::class, 'addOrder'])->name('addorder');

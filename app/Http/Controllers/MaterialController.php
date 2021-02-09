@@ -18,4 +18,16 @@ class MaterialController extends Controller
         $materials = Material::all();
         return view('material.material', compact('materials'));
     }
+    public function edit($material_id){
+        $material = Material::find($material_id);
+        return view('material.updateMaterial', compact('material'));
+    }
+
+    public function update(Request $request, $material_id){
+        $material = Material::find($material_id);
+        $material->material_name = $request->material_name;
+        $material->material_type = $request->material_type;
+        $material->save();
+        return redirect()->route('material');
+    }
 }

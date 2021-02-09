@@ -6,6 +6,7 @@ use App\Models\Material;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
