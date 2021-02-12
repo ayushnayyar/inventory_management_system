@@ -29,6 +29,10 @@ Route::get('/addvendor',function(){
 
 Route::post('/vendor/store', [App\Http\Controllers\VendorController::class, 'store'])->name('vendor.store');
 
+Route::get('/vendor/edit/{vendor_id}', [App\Http\Controllers\VendorController::class, 'edit'])->name('vendor.edit');
+
+Route::post('/vendor/update/{vendor_id}', [App\Http\Controllers\VendorController::class, 'update'])->name('vendor.update');
+
 Route::get('/material', [App\Http\Controllers\MaterialController::class, 'index'])->name('material');
 
 Route::get('/addmaterial',function(){

@@ -19,4 +19,16 @@ class VendorController extends Controller
         $vendors = Vendor::all();
         return view('vendor.vendor', compact('vendors'));
     }
+    public function edit($vendor_id){
+        $vendor = Vendor::find($vendor_id);
+        return view('vendor.updateVendor', compact('vendor'));
+    }
+    public function update(Request $request,$vendor_id){
+        $vendor = Vendor::find($vendor_id);
+        $vendor->party_name = $request->party_name;
+        $vendor->gst_no = $request->gst_no;
+        $vendor->address = $request->address;
+        $vendor->save();
+        return redirect()->route('vendor');
+    }
 }
