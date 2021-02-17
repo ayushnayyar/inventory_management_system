@@ -30,4 +30,9 @@ class MaterialController extends Controller
         $material->save();
         return redirect()->route('material');
     }
+    public function delete($material_id){
+        $material = Material::find($material_id);
+        $material->delete();
+        return redirect()->route('material');
+    }
 }

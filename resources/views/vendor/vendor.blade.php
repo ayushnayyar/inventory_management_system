@@ -15,6 +15,7 @@
         <td>{{ $vendor->gst_no }}</td>
         <td>{{ $vendor->address }}</td>
         <td><a href="{{ Route('vendor.edit',[$vendor->id]) }}" class="btn btn-warning">Update</a></td>
+        <td><a href="{{ Route('vendor.delete',[$vendor->id]) }}" class="btn btn-warning">Delete</a></td>
       </tr>
       @endforeach
   </table>

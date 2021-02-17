@@ -33,6 +33,8 @@ Route::get('/vendor/edit/{vendor_id}', [App\Http\Controllers\VendorController::c
 
 Route::post('/vendor/update/{vendor_id}', [App\Http\Controllers\VendorController::class, 'update'])->name('vendor.update');
 
+Route::get('/vendor/delete/{vendor_id}', [App\Http\Controllers\VendorController::class, 'delete'])->name('vendor.delete');
+
 Route::get('/material', [App\Http\Controllers\MaterialController::class, 'index'])->name('material');
 
 Route::get('/addmaterial',function(){
@@ -44,6 +46,8 @@ Route::post('/material/store', [App\Http\Controllers\MaterialController::class, 
 Route::get('/material/edit/{material_id}', [App\Http\Controllers\MaterialController::class, 'edit'])->name('material.edit');
 
 Route::post('/material/update/{material_id}', [App\Http\Controllers\MaterialController::class, 'update'])->name('material.update');
+
+Route::get('/material/delete/{material_id}', [App\Http\Controllers\MaterialController::class, 'delete'])->name('material.delete');
 
 Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('order');
 

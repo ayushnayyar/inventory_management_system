@@ -31,4 +31,9 @@ class VendorController extends Controller
         $vendor->save();
         return redirect()->route('vendor');
     }
+    public function delete($vendor_id){
+        $vendor = Vendor::find($vendor_id);
+        $vendor->delete();
+        return redirect()->route('vendor');
+    }
 }
