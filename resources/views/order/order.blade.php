@@ -3,17 +3,17 @@
 <div class="container">
 <a class="btn btn-primary mb-3" href="{{ Route('addorder') }}">Add Order</a>
 
-<table id="orders" class="table table-dark">
+<table id="orders" class='table table-dark table-hover table-responsive-sm'>
       <tr>
-        <th>Item id</th>
-        <th>Vendor id</th>
+        <th>Item ID</th>
+        <th>Vendor ID</th>
         <th>Stock Recieved</th>
         <th>Current Stock</th>
         <th>Beam</th>
         <th>Dispatched</th>
       </tr>
       @foreach($orders as $order)
-      <tr>
+      <tr class='table-active'>
         <td>{{ $order->item_id }} </td>
         <td>{{ $order->party_id }}</td>
         <td>{{ $order->stock }}</td>

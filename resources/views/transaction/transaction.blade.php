@@ -2,16 +2,16 @@
 @section('content')
 <div class="container">
 <h1>Transaction</h1>
-<table id="customers">
+<table id="customers" class='table table-dark table-hover table-responsive-sm'>
       <tr>
         <th>Item ID</th>
         <th>Vendor ID</th>
-        <th>Stock initial</th>
-        <th>Current stock</th>
+        <th>Initial Stock</th>
+        <th>Current Stock</th>
         <th>Beam</th>
         <th>Dispatch</th>
       </tr>
-      <tr>
+      <tr class='table-activer'>
         <td>Alfreds Futterkiste</td>
         <td>Maria Anders</td>
         <td>Germany item</td>
