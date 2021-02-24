@@ -2,8 +2,9 @@
 @section('content')
 <div class="container">
 <h1>Transaction</h1>
-<table id="customers">
+<table id="customers"  class="table table-dark">
       <tr>
+      <th>Order id</th>
         <th>Item ID</th>
         <th>Vendor ID</th>
         <th>Stock initial</th>
@@ -11,15 +12,17 @@
         <th>Beam</th>
         <th>Dispatch</th>
       </tr>
+      @foreach($transactions as $transaction)
       <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany item</td>
-        <td>Germany jsjf</td>
-        <td>Germany sdffgssfg</td>
-        <td>Germany dd</td>
-        <td><a href="" class="btn btn-warning">Update</a></td>
+        <td>{{ $transaction->order_id}} </td>
+        <td>{{ $transaction->party_id }}</td>
+        <td>{{ $transaction->item_id }} </td>
+        <td>{{ $transaction->stock }} </td>
+        <td>{{ $transaction->current_stock }} </td>
+        <td>{{ $transaction->beam }} </td>
+        <td> {{ $transaction->dispatched }} </td>
       </tr>
+     @endforeach
   </table>
 </div>
 @endsection

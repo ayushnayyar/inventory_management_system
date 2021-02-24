@@ -53,8 +53,10 @@ Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->na
 
 Route::get('/addorder', [App\Http\Controllers\OrderController::class, 'addOrder'])->name('addorder');
 
+Route::get('/editorder/{order_id}', [App\Http\Controllers\OrderController::class, 'editOrder'])->name('order.edit');
+
+Route::post('/updateorder/{order_id}', [App\Http\Controllers\OrderController::class, 'updateOrder'])->name('order.update');
+
 Route::post('/order/store', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 
-Route::get('/transaction', function(){
-    return view('transaction/transaction');
-})->name('transaction');
+Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction');

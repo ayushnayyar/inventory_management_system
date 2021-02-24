@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Material;
 use App\Models\Order;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -28,6 +30,32 @@ class OrderController extends Controller
         $order->dispatched=$request->dispatched;
         $order->party_id = $request->party_id;
         $order->item_id = $request->material_id;
+        $order->save();
+        $datas = DB::table('orders')->leftJoin('transactions','orders.id','=','transactions.order_id')->select('orders.*')->orderBy('created_at', 'asc')->get();
+        $transaction = new Transaction();
+        foreach($datas as $data){
+        $transaction->order_id = $data->id;
+        $transaction->party_id = $data->party_id;
+        $transaction->item_id = $data->item_id;
+        $transaction->stock = $data->stock;
+        $transaction->current_stock = $data->current_stock;
+        $transaction->beam = $data->beam;
+        $transaction->dispatched = $data->dispatched;
+        $transaction->save();
+        }
+        return redirect()->route('order');
+    }
+
+    public function editOrder($order_id){
+        $order = Order::find($order_id);
+        return view('order.updateOrder', compact('order'));
+    }
+
+    public function updateOrder($order_id, Request $request){
+        $order = Order::find($order_id);
+        $order->stock = $request->stock;
+        $order->beam=$request->beam;
+        $order->dispatched=$request->dispatched;
         $order->save();
         return redirect()->route('order');
     }
