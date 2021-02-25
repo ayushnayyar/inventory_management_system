@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-<a class="btn btn-primary mb-3" href="{{ Route('addmaterial') }}">Add item</a>
-<table id="customers">
+<a class="btn btn-primary mb-3" href="{{ Route('addmaterial') }}">Add Material</a>
+<table id="customers" class='table table-dark table-hover table-responsive-sm'>
       <tr>
-        <th>Material type</th>
-        <th>material name</th>
+        <th>Material Type</th>
+        <th>Material Name</th>
       </tr>
       @foreach($materials as $material)
-      <tr>
+      <tr class='table-active'>
         <td>{{ $material->material_name }}</td>
         <td>{{ $material->material_type }}</td>
         <td><a href="{{ Route('material.edit', [$material->id]) }}" class="btn btn-warning">Update</a></td>
