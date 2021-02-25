@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label class="mt-3" for="name">Select Material</label>
-            <select name="material_id" class='form-select' selected disabled>
+            <select name="material_id" class='form-select'>
                 @foreach($materials as $material)
                 <option value="{{ $material->id }}">{{ $material->material_name }}</option>
                 @endforeach

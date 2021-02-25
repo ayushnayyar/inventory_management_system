@@ -5,10 +5,6 @@
     <form action="{{ Route('order.update',[$order->id])}}" method="POST">
     @csrf
         <div class="form-group">
-            <label class='mt-3' for="name">Enter Stock recieved</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="stock" value="{{$order->stock}}">
-        </div>
-        <div class="form-group">
             <label class='mt-3' for="name">Weight on beam</label>
             <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="beam" value="{{$order->beam}}">
         </div>

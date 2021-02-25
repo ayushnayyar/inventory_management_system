@@ -21,7 +21,7 @@
         <td>{{ $order->beam }}</td>
         <td>{{ $order->dispatched }}</td>
         <td><a href="{{ Route('order.edit',[$order->id]) }}" class="btn btn-warning">Update</a></td>
-        <td><a href="" class="btn btn-success">View</a></td>
+        <td><a href="{{ Route('order.view',[$order->id]) }}" class="btn btn-success">View</a></td>
         <td><a href="" class="btn btn-danger">Delete</a></td>
       </tr>
       @endforeach
