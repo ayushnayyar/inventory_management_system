@@ -24,7 +24,7 @@ class OrderController extends Controller
     }
     public function store(Request $request){
         $order = new Order();
-        $current_stock = $request->stock - ($request->beam + $request->dispatched);
+        $current_stock = $request->stock - ($request->dispatched);
         $order->stock = $request->stock;
         $order->current_stock=$current_stock;
         $order->beam=$request->beam;
@@ -56,7 +56,7 @@ class OrderController extends Controller
         $order = Order::find($order_id);
         $order->beam=$request->beam;
         $order->dispatched=$request->dispatched;
-        $current_stock = $order->stock - ($request->beam + $request->dispatched);
+        $current_stock = $order->stock - ($request->dispatched);
         $order->current_stock = $current_stock;
         $order->save();
         $transaction = new Transaction();
@@ -68,6 +68,14 @@ class OrderController extends Controller
         $transaction->beam = $request->beam;
         $transaction->dispatched = $request->dispatched;
         $transaction->save();
+        $ts = DB::table('transactions')->where('order_id','=',$order_id)->get();
+        $dispatched = 0;
+        foreach($ts as $t){
+            $dispatched = $dispatched + $t->dispatched;
+        }
+        $order->current_stock = $order->stock - $dispatched;
+        $order->dispatched = $dispatched;
+        $order->save();
         return redirect()->route('order');
     }
 

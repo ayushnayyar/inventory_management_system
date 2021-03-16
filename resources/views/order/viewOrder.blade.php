@@ -11,6 +11,7 @@
         <th>Current stock</th>
         <th>Beam</th>
         <th>Dispatch</th>
+        <th>Timestamp</th>
       </tr>
       @foreach($transactions as $transaction)
       <tr>
@@ -21,6 +22,7 @@
         <td>{{ $transaction->current_stock }} </td>
         <td>{{ $transaction->beam }} </td>
         <td> {{ $transaction->dispatched }} </td>
+        <td> {{$transaction->created_at }} </td>
       </tr>
      @endforeach
   </table>
