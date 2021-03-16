@@ -57,6 +57,8 @@ Route::get('/editorder/{order_id}', [App\Http\Controllers\OrderController::class
 
 Route::post('/updateorder/{order_id}', [App\Http\Controllers\OrderController::class, 'updateOrder'])->name('order.update');
 
+Route::get('/deleteorder/{order_id}', [App\Http\Controllers\OrderController::class, 'deleteOrder'])->name('order.delete');
+
 Route::post('/order/store', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 
 Route::get('/vieworder/{order_id}', [App\Http\Controllers\OrderController::class, 'viewOrder'])->name('order.view');

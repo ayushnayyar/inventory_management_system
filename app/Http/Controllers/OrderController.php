@@ -83,4 +83,10 @@ class OrderController extends Controller
        $transactions = DB::table('transactions')->where('order_id', $order_id)->get();
        return view('order.viewOrder', compact('transactions'));
     }
+
+    public function deleteOrder($order_id){
+        $order = Order::find($order_id);
+        $order->delete();
+        return redirect()->route('order'); 
+    }
 }
