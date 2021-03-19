@@ -16,8 +16,8 @@
       @foreach($transactions as $transaction)
       <tr>
         <td>{{ $transaction->order_id}} </td>
-        <td>{{ $transaction->party_id }}</td>
-        <td>{{ $transaction->item_id }} </td>
+        <td>{{ $transaction->party_name }}</td>
+        <td>{{ $transaction->item_name }} </td>
         <td>{{ $transaction->stock }} </td>
         <td>{{ $transaction->current_stock }} </td>
         <td>{{ $transaction->beam }} </td>

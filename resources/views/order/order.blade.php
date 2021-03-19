@@ -5,8 +5,8 @@
 
 <table id="orders" class='table table-dark table-hover table-responsive-sm'>
       <tr>
-        <th>Item ID</th>
-        <th>Vendor ID</th>
+        <th>Item Name</th>
+        <th>Vendor Name</th>
         <th>Stock Recieved</th>
         <th>Current Stock</th>
         <th>Beam</th>
@@ -14,8 +14,8 @@
       </tr>
       @foreach($orders as $order)
       <tr class='table-active'>
-        <td>{{ $order->item_id }} </td>
-        <td>{{ $order->party_id }}</td>
+        <td>{{ $order->item_name }} </td>
+        <td>{{ $order->party_name }}</td>
         <td>{{ $order->stock }}</td>
         <td>{{ $order->current_stock }}</td>
         <td>{{ $order->beam }}</td>

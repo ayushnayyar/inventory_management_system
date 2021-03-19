@@ -18,6 +18,8 @@ class CreateTransactionsTable extends Migration
             $table->integer('order_id')->unsigned();
             $table->integer('party_id')->unsigned();
             $table->integer('item_id')->unsigned();
+            $table->string('item_name');
+            $table->string('party_name');
             $table->integer('stock');
             $table->integer('current_stock');
             $table->integer('beam');

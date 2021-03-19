@@ -17,6 +17,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->integer('party_id')->unsigned();
             $table->integer('item_id')->unsigned();
+            $table->string('item_name');
+            $table->string('party_name');
             $table->integer('stock');
             $table->integer('current_stock');
             $table->integer('beam');

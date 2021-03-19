@@ -31,6 +31,17 @@ class OrderController extends Controller
         $order->dispatched=$request->dispatched;
         $order->party_id = $request->party_id;
         $order->item_id = $request->material_id;
+        $getItem= DB::table('materials')->where('id','=',$request->material_id)->get();
+        foreach ($getItem as $item){
+                $itemName= $item->material_name;
+        }
+        $getVendor= DB::table('vendors')->where('id','=',$request->party_id)->get();
+        foreach ($getVendor as $vendor){
+                $partyName =  $vendor->party_name;
+        }
+       
+        $order->item_name = $itemName;
+        $order->party_name = $partyName;
         $order->save();
         $datas = DB::table('orders')->leftJoin('transactions','orders.id','=','transactions.order_id')->select('orders.*')->orderBy('created_at', 'asc')->get();
         $transaction = new Transaction();
@@ -42,6 +53,8 @@ class OrderController extends Controller
         $transaction->current_stock = $data->current_stock;
         $transaction->beam = $data->beam;
         $transaction->dispatched = $data->dispatched;
+        $transaction->item_name = $data->item_name;
+        $transaction->party_name = $data->party_name;
         $transaction->save();
         }
         return redirect()->route('order');
@@ -67,6 +80,8 @@ class OrderController extends Controller
         $transaction->current_stock = $current_stock;
         $transaction->beam = $request->beam;
         $transaction->dispatched = $request->dispatched;
+        $transaction->item_name = $order->item_name;
+        $transaction->party_name = $order->party_name;
         $transaction->save();
         $ts = DB::table('transactions')->where('order_id','=',$order_id)->get();
         $dispatched = 0;
@@ -76,6 +91,8 @@ class OrderController extends Controller
         $order->current_stock = $order->stock - $dispatched;
         $order->dispatched = $dispatched;
         $order->save();
+        $transaction->current_stock = $transaction->stock - $dispatched;
+        $transaction->save();
         return redirect()->route('order');
     }
 
