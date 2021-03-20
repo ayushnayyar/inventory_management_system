@@ -39,16 +39,16 @@
                     @if (!Auth::guest())                    
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="{{ (\Request::route()->getName() == 'vendor') ? 'active' : '' }} nav-link" href="{{ route('vendor') }}">{{ __('Vendors') }}</a>
+                                <a class="{{ (\Request::route()->getName() == 'vendor') ? 'active text-primary' : '' }} nav-link" href="{{ route('vendor') }}">{{ __('Vendors') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="{{ (\Request::route()->getName() == 'material') ? 'active' : '' }} nav-link" href="{{ route('material') }}">{{ __('Materials') }}</a>
+                                <a class="{{ (\Request::route()->getName() == 'material') ? 'active text-primary' : '' }} nav-link" href="{{ route('material') }}">{{ __('Materials') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="{{ (\Request::route()->getName() == 'order') ? 'active' : '' }} nav-link" href="{{ route('order') }}">{{ __('Orders') }}</a>
+                                <a class="{{ (\Request::route()->getName() == 'order') ? 'active text-primary' : '' }} nav-link" href="{{ route('order') }}">{{ __('Orders') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="{{ (\Request::route()->getName() == 'transaction') ? 'active' : '' }} nav-link" href="{{ route('transaction') }}">{{ __('Transactions') }}</a>
+                                <a class="{{ (\Request::route()->getName() == 'transaction') ? 'active text-primary' : '' }} nav-link" href="{{ route('transaction') }}">{{ __('Transactions') }}</a>
                             </li>
                         </ul>
                     @else 
