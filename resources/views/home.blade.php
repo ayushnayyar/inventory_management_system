@@ -26,8 +26,8 @@
             <div class="card border-primary ml-3 mr-3 mb-3 mt-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Order Details</h5>
-                    <p class="card-text">Orders yet to be fulfilled: 2</p>
-                    <p class="card-text">Orders completed: 20</p>
+                    <p class="card-text">Orders Pending: 2</p>
+                    <p class="card-text">Orders Completed: 20</p>
                 </div>
                 <div class='card-footer border-primary bg-transparent'>
                 <a href="#" class="btn btn-primary">View Orders</a></div>
@@ -35,7 +35,7 @@
             <div class="card border-primary ml-3 mr-3 mb-3 mt-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Transactions</h5>
-                    <p class="card-text">Transactions today: 3</p>
+                    <p class="card-text">Transactions Today: 3</p>
                 </div>
                 <div class='card-footer border-primary bg-transparent'>
                 <a href="#" class="btn btn-primary">View Transaction Log</a></div>
