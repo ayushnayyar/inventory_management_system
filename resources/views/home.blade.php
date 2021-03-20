@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+@php
+use Illuminate\Support\Facades\DB;
+$vendors = DB::table('vendors')->get();
+$vendorsCount = $vendors->count();
+$materials = DB::table('materials')->get();
+$materialsCount = $materials->count();
+$orders = DB::table('orders')->get();
+$ordersCount = $orders->count();
+$transactions = DB::table('transactions')->get();
+$transactionsCount = $transactions->count();
+@endphp
+
 <div class="container">
     <div class='heading'>
         <h1 class='ml-3'>Dashboard</h1>
@@ -10,35 +22,35 @@
             <div class="card border-primary ml-3 mr-3 mb-3 mt-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Vendor Details</h5>
-                    <p class="card-text">Registered Vendors: 12</p>
+                    <p class="card-text">Registered Vendors: {{ $vendorsCount }}</p>
                 </div>
                 <div class='card-footer border-primary bg-transparent'>
-                <a href="#" class="btn btn-primary">View Vendors</a></div>
+                <a href="{{ Route('vendor') }}" class="btn btn-primary">View Vendors</a></div>
             </div>
             <div class="card border-primary ml-3 mr-3 mb-3 mt-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Material Details</h5>
-                    <p class="card-text">Available Materials: 15</p>
+                    <p class="card-text">Available Materials: {{ $materialsCount }}</p>
                 </div>
                 <div class='card-footer border-primary bg-transparent'>
-                <a href="#" class="btn btn-primary">View Materials</a></div>
+                <a href="{{ Route('material') }}" class="btn btn-primary">View Materials</a></div>
             </div>
             <div class="card border-primary ml-3 mr-3 mb-3 mt-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Order Details</h5>
                     <p class="card-text">Orders yet to be fulfilled: 2</p>
-                    <p class="card-text">Orders completed: 20</p>
+                    <p class="card-text">Orders completed: {{ $ordersCount }}</p>
                 </div>
                 <div class='card-footer border-primary bg-transparent'>
-                <a href="#" class="btn btn-primary">View Orders</a></div>
+                <a href="{{ Route('order') }}" class="btn btn-primary">View Orders</a></div>
             </div>
             <div class="card border-primary ml-3 mr-3 mb-3 mt-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Transactions</h5>
-                    <p class="card-text">Transactions today: 3</p>
+                    <p class="card-text"> All Transactions: {{ $transactionsCount }}</p>
                 </div>
                 <div class='card-footer border-primary bg-transparent'>
-                <a href="#" class="btn btn-primary">View Transaction Log</a></div>
+                <a href="{{ Route('transaction') }}" class="btn btn-primary">View Transaction Log</a></div>
             </div>
         </div>
 </div>

@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 <a class="btn btn-primary mb-3" href="{{ Route('addorder') }}">Add Order</a>
-
+<a class="btn btn-primary mb-3" href="{{ Route('reportorder') }}">Generate Report</a>
 <table id="orders" class='table table-dark table-hover table-responsive-sm'>
       <tr>
         <th>Item Name</th>
