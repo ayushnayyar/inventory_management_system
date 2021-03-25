@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVendorsTable extends Migration
+class CreateMrnTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateVendorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vendors', function (Blueprint $table) {
+        Schema::create('mrn', function (Blueprint $table) {
             $table->id();
-            $table->string('party_name');
-            $table->string('gst_no');
-            $table->string('address');
+            $table->integer('mrn_no');
+            $table->string('vendor_name');
+            $table->string('item_name');
+            $table->string('description');
+            $table->integer('invoice_no');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateVendorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendors');
+        Schema::dropIfExists('mrn');
     }
 }

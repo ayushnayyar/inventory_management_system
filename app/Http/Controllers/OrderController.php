@@ -45,9 +45,9 @@ class OrderController extends Controller
         $order->item_name = $itemName;
         $order->party_name = $partyName;
         $order->save();
-        $datas = DB::table('orders')->leftJoin('transactions','orders.id','=','transactions.order_id')->select('orders.*')->orderBy('created_at', 'asc')->get();
+        $joinData = DB::table('orders')->leftJoin('transactions','orders.id','=','transactions.order_id')->select('orders.*')->orderBy('created_at', 'asc')->get();
         $transaction = new Transaction();
-        foreach($datas as $data){
+        foreach($joinData as $data){
         $transaction->order_id = $data->id;
         $transaction->party_id = $data->party_id;
         $transaction->item_id = $data->item_id;
