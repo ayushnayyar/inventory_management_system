@@ -33,7 +33,7 @@ class OrderController extends Controller
         $order->dispatched=$request->dispatched;
         $order->party_id = $request->party_id;
         $order->item_id = $request->material_id;
-        $getItem= DB::table('materials')->where('id','=',$request->material_id)->get();
+        $getItem = DB::table('materials')->where('id','=',$request->material_id)->get();
         foreach ($getItem as $item){
                 $itemName= $item->material_name;
         }

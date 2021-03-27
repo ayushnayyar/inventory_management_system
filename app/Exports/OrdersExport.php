@@ -15,7 +15,7 @@ class OrdersExport implements FromCollection,WithHeadings
             'item_name',
             'stock',
             'current_stock',
-            'beam',
+            'yadnyesh',
             'dispatched',
            
         ];
