@@ -38,7 +38,6 @@ $transactionsCount = $transactions->count();
             <div class="card border-primary ml-3 mr-3 mb-3 mt-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Order Details</h5>
-                    <p class="card-text">Orders yet to be fulfilled: 2</p>
                     <p class="card-text">Orders completed: {{ $ordersCount }}</p>
                 </div>
                 <div class='card-footer border-primary bg-transparent'>
