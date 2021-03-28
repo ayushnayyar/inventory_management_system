@@ -17,7 +17,6 @@ class CreateMaterialsTable extends Migration
             $table->id();
             $table->string('material_name');
             $table->string('material_type');
-            $table->string('shade');
             $table->timestamps();
         });
     }

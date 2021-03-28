@@ -50,6 +50,9 @@
                             <li class="nav-item">
                                 <a class="{{ (\Request::route()->getName() == 'transaction') ? 'active text-primary' : '' }} nav-link" href="{{ route('transaction') }}">{{ __('Transactions') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="{{ (\Request::route()->getName() == 'transaction') ? 'active text-primary' : '' }} nav-link" href="{{ route('mrn') }}">{{ __('mrn') }}</a>
+                            </li>
                         </ul>
                     @else 
                     @endif

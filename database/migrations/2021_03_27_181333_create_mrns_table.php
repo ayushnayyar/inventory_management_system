@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMrnTable extends Migration
+class CreateMrnsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMrnTable extends Migration
      */
     public function up()
     {
-        Schema::create('mrn', function (Blueprint $table) {
+        Schema::create('mrns', function (Blueprint $table) {
             $table->id();
             $table->integer('mrn_no');
             $table->string('vendor_name');
@@ -32,6 +32,6 @@ class CreateMrnTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mrn');
+        Schema::dropIfExists('mrns');
     }
 }

@@ -5,16 +5,20 @@
     <form action="{{ Route('order.store')}}" method="POST">
     @csrf
         <div class="form-group">
-            <label class='mt-3' for="name">Stock Recieved</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="stock">
+            <label class='mt-3' for="name"> Recieved Stock</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="recieved_stock">
         </div>
         <div class="form-group">
-            <label class='mt-3' for="name">Weight on Beam</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="beam">
+            <label class='mt-3' for="name">Actual Stock</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="actual_stock">
         </div>
         <div class="form-group">
-            <label class='mt-3' for="name">Weight Dispatched</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="dispatched">
+            <label class='mt-3' for="name">Actual Recieved From</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="vendor name" name="actual_recieved_from">
+        </div>
+        <div class="form-group">
+            <label class='mt-3' for="name">Return Stock</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Kg" name="return_stock">
         </div>
         <div class="form-group">
             <label class="mt-3" for="name">Select Vendor</label>
@@ -32,6 +36,15 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <label class="mt-3" for="name">Select Shade</label>
+            <select name="shade" class='form-select'>
+               <option value="green">Green</option>
+               <option value="red">Red</option>
+               <option value="yellow">yellow</option>
+            </select>
+        </div>
+       
         <input type="submit" class="btn btn-primary mt-3" name="submit">
     </form>
 </div>

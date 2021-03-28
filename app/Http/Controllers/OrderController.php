@@ -26,11 +26,18 @@ class OrderController extends Controller
     }
     public function store(Request $request){
         $order = new Order();
-        $current_stock = $request->stock - ($request->dispatched);
-        $order->stock = $request->stock;
-        $order->current_stock=$current_stock;
-        $order->beam=$request->beam;
-        $order->dispatched=$request->dispatched;
+        $current_stock = $request->actual_stock - ($request->return_stock);
+        $order->recieved_stock= $request->recieved_stock;
+        $order->actual_stock = $request->actual_stock;
+        $order->return_stock = $request->return_stock;
+        $order->current_stock = $current_stock;
+        $order->short_stock= $request->recieved_stock - $request->actual_stock;
+        $order->cone_stock = 0;
+        $order->beam_machine = 0;
+        $order->beam_floor = 0;
+        $order->weft = 0;
+        $order->dispatched = 0;
+        $order->fabric_stock = 0;
         $order->party_id = $request->party_id;
         $order->item_id = $request->material_id;
         $getItem= DB::table('materials')->where('id','=',$request->material_id)->get();
@@ -41,9 +48,10 @@ class OrderController extends Controller
         foreach ($getVendor as $vendor){
                 $partyName =  $vendor->party_name;
         }
-       
+        $order->shade =$request->shade;
         $order->item_name = $itemName;
         $order->party_name = $partyName;
+        $order->actual_recieved_from =$request->actual_recieved_from; 
         $order->save();
         $joinData = DB::table('orders')->leftJoin('transactions','orders.id','=','transactions.order_id')->select('orders.*')->orderBy('created_at', 'asc')->get();
         $transaction = new Transaction();
