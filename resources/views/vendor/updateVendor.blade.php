@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
             <label class='mt-3' for="name">GST No.</label>
-            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter GST No." name="gst_no" value="{{ $vendor->gst_no }}">
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter GST No." name="gst_no" value="{{ $vendor->gst_no }}">
         </div>
         <div class="form-group">
             <label class='mt-3' for="name">Vendor Address</label>

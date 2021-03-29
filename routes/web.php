@@ -66,3 +66,5 @@ Route::post('/order/store', [App\Http\Controllers\OrderController::class, 'store
 Route::get('/vieworder/{order_id}', [App\Http\Controllers\OrderController::class, 'viewOrder'])->name('order.view');
 
 Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction');
+
+Route::get('/mrn', [App\Http\Controllers\MrnController::class, 'index'])->name('mrn');
