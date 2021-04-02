@@ -2,11 +2,7 @@
 @section('content')
 
 <div class="container">
-<div style="margin-left: 40%;">
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-info border border-dark">Others</button>
-    </div>
-</div>
+
     <form class="mt-4">
     <div class="row">
         <div class="form-group col-6">
