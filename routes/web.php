@@ -68,3 +68,6 @@ Route::get('/vieworder/{order_id}', [App\Http\Controllers\OrderController::class
 Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction');
 
 Route::get('/mrn', [App\Http\Controllers\MrnController::class, 'index'])->name('mrn');
+Route::get('/mrnYarn', function () {
+    return view('mrns/mrnYarn');
+});
