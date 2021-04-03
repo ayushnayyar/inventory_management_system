@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div id="layoutSidenav_content">
     <form  action="{{ Route('material.update', [$material->id]) }}" method="POST">
         @csrf
         <div class="form-group">

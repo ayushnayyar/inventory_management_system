@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div id="layoutSidenav_content">
     <h4>update order</h4>
     <form action="{{ Route('order.update',[$order->id])}}" method="POST">
     @csrf

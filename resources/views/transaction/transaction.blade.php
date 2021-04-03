@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div id="layoutSidenav_content">
 <h1>Transaction</h1>
 <table id="customers"  class="table table-dark">
       <tr>

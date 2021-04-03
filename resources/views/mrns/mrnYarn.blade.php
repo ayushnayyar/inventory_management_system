@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container">
+<div id="layoutSidenav_content">
 
     <form class="mt-4">
     <div class="row">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container">
+<div id="layoutSidenav_content">
 <div style="margin-left: 40%;">
     <div class="btn-group" role="group" aria-label="Basic example">
         <a type="button" href="{{ Route('mrn.others') }}" class="btn btn-info border border-dark">Others</a>

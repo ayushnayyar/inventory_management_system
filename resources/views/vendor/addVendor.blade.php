@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div id="layoutSidenav_content">
     <h4>Add Vendor</h4>
     
     <form action="{{ Route('vendor.store') }}" method="POST">

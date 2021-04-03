@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div id="layoutSidenav_content">
     <h4>update Vendor</h4>
 
     <form action="{{ Route('vendor.update', [$vendor->id]) }}" method="POST">

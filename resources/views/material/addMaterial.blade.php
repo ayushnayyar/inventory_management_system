@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div id="layoutSidenav_content">
         <h4>Add Material</h4>
         <form action="{{ Route('material.store') }}" method="POST">
         @csrf

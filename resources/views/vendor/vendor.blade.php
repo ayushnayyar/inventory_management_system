@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container">
+  <div id="layoutSidenav_content">
    
     <a class="btn btn-primary mb-3" href="{{ Route('addvendor') }}">Add Vendor</a>
     <table id="customers" class='table table-dark table-hover table-responsive-sm'>
