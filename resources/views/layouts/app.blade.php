@@ -102,8 +102,9 @@
                             </a>
                             <div class="collapse" id="collapseMrn" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="{{ (\Request::route()->getName() == 'mrn') ? 'active text-primary' : '' }} nav-link" href="{{ route('vendor') }}">{{ __('mrn') }}</a>
-                                    <a class="nav-link" href="">Add MRN</a>
+                                    <a class="{{ (\Request::route()->getName() == 'mrn') ? 'active text-primary' : '' }} nav-link" href="{{ route('mrn') }}">{{ __('mrn') }}</a>
+                                    <a class="nav-link" href="{{ Route('mrn.yarn') }}">Add Yarn</a>
+                                    <a class="nav-link" href="{{ Route('mrn.others') }}">Add Other</a>
                                 </nav>
                             </div>
                             <!-- Vendors -->
@@ -114,8 +115,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">View</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Add Vendor</a>
+                                    <a class="nav-link" href="{{ Route('vendor') }}">View</a>
+                                    <a class="nav-link" href="{{ Route('addvendor') }}">Add Vendor</a>
                                 </nav>
                             </div>
                             <!-- Materials -->
@@ -127,7 +128,7 @@
                             <div class="collapse" id="collapseMaterials" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="{{ (\Request::route()->getName() == 'material') ? 'active text-primary' : '' }} nav-link" href="{{ route('material') }}">{{ __('Materials') }}</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Add Material</a>
+                                    <a class="nav-link" href="{{ Route('addmaterial') }}">Add Material</a>
                                 </nav>
                             </div>
                             <!-- Orders -->
@@ -139,7 +140,7 @@
                             <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="{{ (\Request::route()->getName() == 'order') ? 'active text-primary' : '' }} nav-link" href="{{ route('order') }}">{{ __('Orders') }}</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Add Order</a>
+                                    <a class="nav-link" href="{{ Route('addorder') }}">Add Order</a>
                                 </nav>
                             </div>
                             <!-- Transactions -->

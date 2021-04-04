@@ -10,6 +10,7 @@ use App\Models\Vendor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Exports\OrdersExport;
+use App\Models\Mrn;
 use Excel;
 
 class OrderController extends Controller
@@ -25,12 +26,22 @@ class OrderController extends Controller
         return view('order.newOrder', compact('vendors','materials'));
     }
     public function store(Request $request){
+        $mrn = new Mrn();
+        $mrn->mrn_no = $request->mrn_no;
+        $mrn->item_name = $request->item_name;
+        $mrn->vendor_name = $request->vendor_name;
+        $mrn->description = $request->description;
+        $mrn->invoice_no = $request->invoice_no;
+        $mrn->quantity = $request->actual_stock;
+        $mrn->save();
         $order = new Order();
+        $order->mrn_id = $mrn->id;
         $current_stock = $request->actual_stock - ($request->return_stock);
         $order->recieved_stock= $request->recieved_stock;
         $order->actual_stock = $request->actual_stock;
         $order->return_stock = $request->return_stock;
         $order->current_stock = $current_stock;
+        $order->invoice_no = $request->invoice_no;
         $order->short_stock= $request->recieved_stock - $request->actual_stock;
         $order->cone_stock = 0;
         $order->beam_machine = 0;
@@ -38,35 +49,35 @@ class OrderController extends Controller
         $order->weft = 0;
         $order->dispatched = 0;
         $order->fabric_stock = 0;
-        $order->party_id = $request->party_id;
-        $order->item_id = $request->material_id;
-        $getItem = DB::table('materials')->where('id','=',$request->material_id)->get();
+        $getItem = DB::table('materials')->where('material_name','=',$request->item_name)->get();
         foreach ($getItem as $item){
-                $itemName= $item->material_name;
+                $itemId= $item->id;
         }
-        $getVendor= DB::table('vendors')->where('id','=',$request->party_id)->get();
+        $getVendor= DB::table('vendors')->where('party_name','=',$request->vendor_name)->get();
         foreach ($getVendor as $vendor){
-                $partyName =  $vendor->party_name;
+                $partyId =  $vendor->id;
         }
         $order->shade =$request->shade;
-        $order->item_name = $itemName;
-        $order->party_name = $partyName;
+        $order->item_name = $request->item_name;
+        $order->party_name = $request->vendor_name;
+        $order->party_id = $partyId;
+        $order->item_id = $itemId;
         $order->actual_recieved_from =$request->actual_recieved_from; 
         $order->save();
-        $joinData = DB::table('orders')->leftJoin('transactions','orders.id','=','transactions.order_id')->select('orders.*')->orderBy('created_at', 'asc')->get();
-        $transaction = new Transaction();
-        foreach($joinData as $data){
-        $transaction->order_id = $data->id;
-        $transaction->party_id = $data->party_id;
-        $transaction->item_id = $data->item_id;
-        $transaction->stock = $data->stock;
-        $transaction->current_stock = $data->current_stock;
-        $transaction->beam = $data->beam;
-        $transaction->dispatched = $data->dispatched;
-        $transaction->item_name = $data->item_name;
-        $transaction->party_name = $data->party_name;
-        $transaction->save();
-        }
+        // $joinData = DB::table('orders')->leftJoin('transactions','orders.id','=','transactions.order_id')->select('orders.*')->orderBy('created_at', 'asc')->get();
+        // $transaction = new Transaction();
+        // foreach($joinData as $data){
+        // $transaction->order_id = $data->id;
+        // $transaction->party_id = $data->party_id;
+        // $transaction->item_id = $data->item_id;
+        // $transaction->stock = $data->stock;
+        // $transaction->current_stock = $data->current_stock;
+        // $transaction->beam = $data->beam;
+        // $transaction->dispatched = $data->dispatched;
+        // $transaction->item_name = $data->item_name;
+        // $transaction->party_name = $data->party_name;
+        // $transaction->save();
+        // }
         return redirect()->route('order');
     }
 

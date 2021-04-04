@@ -69,10 +69,12 @@ Route::get('/transaction', [App\Http\Controllers\TransactionController::class, '
 
 Route::get('/mrn', [App\Http\Controllers\MrnController::class, 'index'])->name('mrn');
 
-Route::get('/mrnYarn', function () {
-    return view('mrns/mrnYarn');
-})->name('mrn.yarn');
+Route::get('/mrnYarn', [App\Http\Controllers\MrnController::class, 'addMrnYarn'])->name('mrn.yarn');
 
 Route::get('/mrnOthers', function () {
     return view('mrns/mrnOthers');
 })->name('mrn.others');
+
+Route::post('/mrnOthers/store', [App\Http\Controllers\MrnController::class, 'store'])->name('mrnothers.store');
+
+Route::post('/mrnYarn/store', [App\Http\Controllers\OrderController::class, 'store'])->name('mrnyarn.store');

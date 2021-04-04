@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@php
+<!-- @php
 use Illuminate\Support\Facades\DB;
 $vendors = DB::table('vendors')->get();
 $vendorsCount = $vendors->count();
@@ -11,7 +11,7 @@ $orders = DB::table('orders')->get();
 $ordersCount = $orders->count();
 $transactions = DB::table('transactions')->get();
 $transactionsCount = $transactions->count();
-@endphp
+@endphp -->
 
 <div id="layoutSidenav_content">
     <main>

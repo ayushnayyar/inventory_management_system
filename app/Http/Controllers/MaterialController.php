@@ -11,7 +11,6 @@ class MaterialController extends Controller
         $material = new Material();
         $material->material_name = $request->material_name;
         $material->material_type = $request->material_type;
-        $material->shade = $request->material_shade;
         $material->save();
         return redirect()->route('material');
     }
