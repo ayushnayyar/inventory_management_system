@@ -1,15 +1,5 @@
 @charset "UTF-8";
-/*!
-* Start Bootstrap - SB Admin v6.0.2 (https://startbootstrap.com/template/sb-admin)
-* Copyright 2013-2020 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
-*/
-/*!
- * Bootstrap v4.5.3 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -66,7 +56,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #1b1f22;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10246,4 +10236,21 @@ body {
 }
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
+}
+
+.dashboard-card-vendors{
+  background-color: #6EDAC5;
+}
+.dashboard-card-materials{
+  background-color: #ACF081;
+}
+.dashboard-card-orders{
+  background-color: #FFB2C9;
+}
+.dashboard-card-transaction{
+  background-color: #F2EA9D;
+}
+.dashboard-text{
+  font-weight: 500;
+  color: #6e7381;
 }
