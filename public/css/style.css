@@ -10283,3 +10283,11 @@ input[type=number]::-webkit-outer-spin-button {
 .delete-btn-color{
   background-color: #FFB2C9;
 }
+
+/* Autofilll input field */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #1B1F22 inset !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.644) !important;
+}

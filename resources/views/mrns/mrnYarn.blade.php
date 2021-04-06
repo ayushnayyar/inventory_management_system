@@ -28,7 +28,7 @@
         </div>
         <div class="form-group col-4">
             <label for="exampleInputPassword1" class="label-color">Actually received from:</label>
-            <input type="text" class="form-control text-center input-bg-color" placeholder="" name="actual_recieved_from">
+            <input type="text" class="form-control input-bg-color" placeholder="" name="actual_recieved_from">
         </div>
         <div class="form-group col-4">
             <label for="exampleInputPassword1" class="label-color">shade:</label>

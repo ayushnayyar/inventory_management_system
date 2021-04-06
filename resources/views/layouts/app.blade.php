@@ -155,6 +155,7 @@
                                     <a class="nav-link" href="layout-sidenav-light.html">Add Transaction</a>
                                 </nav>
                             </div>
+                            
                             @else
                             @endif
                             <!--  -->
@@ -200,10 +201,11 @@
                             </a>
                         </div>
                     </div>
+                    @if (!Auth::guest())
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        {{ Auth::user()->name }}
+                        <div class="small">Logged in as: {{ auth::user()->name }}</div>
                     </div>
+                    @endif
                 </nav>
             </div>
 

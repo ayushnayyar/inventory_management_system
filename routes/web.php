@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::middleware('auth')->group( function() {
+    
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/vendor',  [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
@@ -78,3 +80,4 @@ Route::get('/mrnOthers', function () {
 Route::post('/mrnOthers/store', [App\Http\Controllers\MrnController::class, 'store'])->name('mrnothers.store');
 
 Route::post('/mrnYarn/store', [App\Http\Controllers\OrderController::class, 'store'])->name('mrnyarn.store');
+});
