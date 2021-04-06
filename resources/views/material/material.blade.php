@@ -16,8 +16,8 @@
         <tr class='table-active'>
           <td>{{ $material->material_name }}</td>
           <td>{{ $material->material_type }}</td>
-          <td><a href="{{ Route('material.edit', [$material->id]) }}" class="btn update-btn-color">Update</a></td>
-          <td><a href="{{ Route('material.delete', [$material->id]) }}" class="btn delete-btn-color">Delete</a></td>
+          <td><a href="{{ Route('material.edit', [$material->id]) }}" class="btn btn-sm update-btn-color">Update</a></td>
+          <td><a href="{{ Route('material.delete', [$material->id]) }}" class="btn btn-sm delete-btn-color">Delete</a></td>
         </tr>
         @endforeach
       </table>

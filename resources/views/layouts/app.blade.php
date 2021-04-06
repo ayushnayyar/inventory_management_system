@@ -203,7 +203,8 @@
                     </div>
                     @if (!Auth::guest())
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as: {{ auth::user()->name }}</div>
+                        <div class="small">Logged in as: </div>
+                        <p>{{ auth::user()->name }}</p>
                     </div>
                     @endif
                 </nav>

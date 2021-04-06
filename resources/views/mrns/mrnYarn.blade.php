@@ -55,7 +55,7 @@
             <input type="text" class="form-control input-bg-color" placeholder="" name="description">
         </div>
         <div class="col-4">
-            <button type="submit" class="d-block btn submit-button-color">Submit</button>
+            <button type="submit" class="d-block btn btn-sm submit-button-color">Submit</button>
         </div>
     </div>
     </form>

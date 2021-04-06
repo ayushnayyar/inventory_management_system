@@ -31,7 +31,7 @@
         </div>
         <div class="col-4">
 
-            <button type="submit" class="btn submit-button-color">Submit</button>
+            <button type="submit" class="btn btn-sm submit-button-color">Submit</button>
         </div>
     </div>
     </form>
