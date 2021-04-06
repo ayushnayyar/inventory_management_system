@@ -1,17 +1,21 @@
 @extends('layouts.app')
 @section('content')
 <div id="layoutSidenav_content">
-<h1>Transaction</h1>
-<table id="customers"  class="table table-dark">
-      <tr>
-      <th>Order id</th>
-        <th>Item ID</th>
-        <th>Vendor ID</th>
-        <th>Stock initial</th>
-        <th>Current stock</th>
-        <th>Beam</th>
-        <th>Dispatch</th>
-      </tr>
+  <div>
+
+    <h1 class="text-white">Transaction</h1>
+    <div class="m-2">
+
+      <table id="customers"  class="table table-dark">
+        <tr>
+          <th>Order id</th>
+          <th>Item ID</th>
+          <th>Vendor ID</th>
+          <th>Stock initial</th>
+          <th>Current stock</th>
+          <th>Beam</th>
+          <th>Dispatch</th>
+        </tr>
       @foreach($transactions as $transaction)
       <tr>
         <td>{{ $transaction->order_id}} </td>
@@ -22,7 +26,9 @@
         <td>{{ $transaction->beam }} </td>
         <td> {{ $transaction->dispatched }} </td>
       </tr>
-     @endforeach
-  </table>
+      @endforeach
+    </table>
+  </div>
+  </div>
 </div>
-@endsection
+  @endsection
