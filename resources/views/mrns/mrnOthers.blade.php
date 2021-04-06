@@ -4,32 +4,35 @@
 <div id="layoutSidenav_content">
 <form class="mt-4" method="POST" action="{{ Route('mrnothers.store') }}">
     @csrf
-    <div class="row">
-        <div class="form-group col-6">
-            <label for="exampleInputEmail1">MRN number:</label>
-            <input type="number" class="form-control" id="mrn_number" placeholder="" name='mrn_no'>
+    <div class="row ml-4 mr-4"> 
+        <div class="form-group col-4">
+            <label class="label-color" for="exampleInputEmail1">MRN number:</label>
+            <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name='mrn_no'>
         </div>
-        <div class="form-group col-6">
-            <label for="exampleInputPassword1">Vendor name:</label>
-            <input type="text" class="form-control" placeholder="" name='vendor_name'>
+        <div class="form-group col-4">
+            <label class="label-color" for="exampleInputPassword1">Vendor name:</label>
+            <input type="text" class="form-control input-bg-color" placeholder="" name='vendor_name'>
         </div>
-        <div class="form-group col-6">
-            <label for="exampleInputPassword1">Item name:</label>
-            <input type="text" class="form-control" placeholder="" name="item_name">
+        <div class="form-group col-4">
+            <label class="label-color" for="exampleInputPassword1">Item name:</label>
+            <input type="text" class="form-control input-bg-color" placeholder="" name="item_name">
         </div>
-        <div class="form-group col-6">
-            <label for="exampleInputPassword1">Description:</label>
-            <input type="text" class="form-control" placeholder="" name='description'>
+        <div class="form-group col-4">
+            <label class="label-color" for="exampleInputPassword1">Description:</label>
+            <input type="text" class="form-control input-bg-color" placeholder="" name='description'>
         </div>
-        <div class="form-group col-6">
-            <label for="exampleInputPassword1">Invoice number:</label>
-            <input type="number" class="form-control" placeholder="" name='invoice_no'>
+        <div class="form-group col-4">
+            <label class="label-color" for="exampleInputPassword1">Invoice number:</label>
+            <input type="number" class="form-control input-bg-color" placeholder="" name='invoice_no'>
         </div>
-        <div class="form-group col-6">
-            <label for="exampleInputPassword1">Quantity:</label>
-            <input type="number" class="form-control" placeholder="" name='quantity'>
+        <div class="form-group col-4">
+            <label class="label-color" for="exampleInputPassword1">Quantity:</label>
+            <input type="number" class="form-control input-bg-color" placeholder="" name='quantity'>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-4">
+
+            <button type="submit" class="btn submit-button-color">Submit</button>
+        </div>
     </div>
     </form>
 </div>

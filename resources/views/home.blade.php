@@ -16,9 +16,9 @@ $transactionsCount = $transactions->count();
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4 text-white">Dashboard</h1>
+            <h1 class="mt-3 mb-2 text-center text-white">Vatan Textiles</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item justify-content-center active">Dashboard</li>
             </ol>
             <div class="row">
                 <div class="col-xl-3 col-md-6">
@@ -70,7 +70,8 @@ $transactionsCount = $transactions->count();
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- charts and bar graph -->
+            <!-- <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
@@ -89,7 +90,7 @@ $transactionsCount = $transactions->count();
                                     <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
         </div>
     </main>
     @endsection
