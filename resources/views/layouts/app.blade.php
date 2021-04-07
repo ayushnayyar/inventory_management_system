@@ -155,7 +155,7 @@
                                     <a class="nav-link" href="layout-sidenav-light.html">Add Transaction</a>
                                 </nav>
                             </div>
-                            
+
                             @else
                             @endif
                             <!--  -->
@@ -209,9 +209,7 @@
                     @endif
                 </nav>
             </div>
-
-
-
+            
             @yield('content')
 
 
