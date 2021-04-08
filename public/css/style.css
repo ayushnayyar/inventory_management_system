@@ -10286,6 +10286,9 @@ input[type=number]::-webkit-outer-spin-button {
 .view-btn-color{
   background-color: #F2EA9D;
 }
+.heading-color{
+  color: rgba(255, 255, 255, 0.5);
+}
 
 /* Autofilll input field */
 input:-webkit-autofill,

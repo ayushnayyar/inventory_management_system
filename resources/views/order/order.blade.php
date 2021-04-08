@@ -12,16 +12,14 @@
         <th>Vendor Name</th>
         <th>Stock Recieved</th>
         <th>Current Stock</th>
-        <th>Beam</th>
         <th>Dispatched</th>
       </tr>
       @foreach($orders as $order)
       <tr class='table-active'>
         <td>{{ $order->item_name }} </td>
         <td>{{ $order->party_name }}</td>
-        <td>{{ $order->stock }}</td>
+        <td>{{ $order->recieved_stock }}</td>
         <td>{{ $order->current_stock }}</td>
-        <td>{{ $order->beam }}</td>
         <td>{{ $order->dispatched }}</td>
         <td><a href="{{ Route('order.edit',[$order->id]) }}" class="btn btn-sm update-btn-color">Update</a></td>
         <td><a href="{{ Route('order.view',[$order->id]) }}" class="btn btn-sm view-btn-color">View</a></td>

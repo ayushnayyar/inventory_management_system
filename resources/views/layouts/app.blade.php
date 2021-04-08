@@ -140,11 +140,11 @@
                             <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="{{ (\Request::route()->getName() == 'order') ? 'active text-primary' : '' }} nav-link" href="{{ route('order') }}">{{ __('Orders') }}</a>
-                                    <a class="nav-link" href="{{ Route('addorder') }}">Add Order</a>
+                                    <!-- <a class="nav-link" href="{{ Route('addorder') }}">Add Order</a> -->
                                 </nav>
                             </div>
                             <!-- Transactions -->
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransactions" aria-expanded="false" aria-controls="collapseTransactions">
+                            <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransactions" aria-expanded="false" aria-controls="collapseTransactions">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Transactions
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -154,7 +154,7 @@
                                     <a class="{{ (\Request::route()->getName() == 'transaction') ? 'active text-primary' : '' }} nav-link" href="{{ route('transaction') }}">{{ __('Transactions') }}</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Add Transaction</a>
                                 </nav>
-                            </div>
+                            </div> -->
 
                             @else
                             @endif
