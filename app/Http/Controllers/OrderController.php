@@ -135,6 +135,9 @@ class OrderController extends Controller
 
     public function deleteOrder($order_id){
         $order = Order::find($order_id);
+        $mrn_id = Order::find($order_id)->toArray();
+        $mrn = Mrn::find($mrn_id['mrn_id']);
+        $mrn->delete();
         $order->delete();
         return redirect()->route('order'); 
     }

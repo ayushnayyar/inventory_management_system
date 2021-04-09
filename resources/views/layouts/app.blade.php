@@ -66,8 +66,8 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <div class="dropdown-menu dropdown-menu-right logout-bg-color" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
@@ -102,7 +102,7 @@
                             </a>
                             <div class="collapse" id="collapseMrn" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="{{ (\Request::route()->getName() == 'mrn') ? 'active text-primary' : '' }} nav-link" href="{{ route('mrn') }}">{{ __('mrn') }}</a>
+                                    <!-- <a class="{{ (\Request::route()->getName() == 'mrn') ? 'active text-primary' : '' }} nav-link" href="{{ route('mrn') }}">{{ __('mrn') }}</a> -->
                                     <a class="nav-link" href="{{ Route('mrn.yarn') }}">Add Yarn</a>
                                     <a class="nav-link" href="{{ Route('mrn.others') }}">Add Other</a>
                                 </nav>
@@ -115,7 +115,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ Route('vendor') }}">View</a>
+                                    <a class="nav-link" href="{{ Route('vendor') }}">View Vendors</a>
                                     <a class="nav-link" href="{{ Route('addvendor') }}">Add Vendor</a>
                                 </nav>
                             </div>

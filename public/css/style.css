@@ -57,6 +57,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #1b1f22;
+  overflow-x: hidden;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10297,3 +10298,33 @@ select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #1B1F22 inset !important;
   -webkit-text-fill-color: rgba(255, 255, 255, 0.644) !important;
 }
+
+/* Scroll bar of side nav fixed */
+
+.sb-sidenav-menu::-webkit-scrollbar{
+  width: 50%;
+}
+
+/* logout button */
+
+.logout-bg-color{
+  background-color: #343a40;
+}
+
+.logout-bg-color:hover{
+  background-color: #343a40 ;
+}
+
+.logout-bg-color a{
+  color:  rgba(255, 255, 255, 0.644) !important;
+}
+
+.logout-bg-color:hover a{
+  color: white  !important;
+  background-color: #343a40 !important;
+}
+
+/* checkbox */
+/* .checkbox-checked-bg input:checked ~ .checkmark {
+  background-color: #1B1F22  !important;
+} */
