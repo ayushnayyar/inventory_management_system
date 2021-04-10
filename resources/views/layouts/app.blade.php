@@ -102,7 +102,7 @@
                             </a>
                             <div class="collapse" id="collapseMrn" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <!-- <a class="{{ (\Request::route()->getName() == 'mrn') ? 'active text-primary' : '' }} nav-link" href="{{ route('mrn') }}">{{ __('mrn') }}</a> -->
+                                    <a class="{{ (\Request::route()->getName() == 'mrn') ? 'active text-primary' : '' }} nav-link" href="{{ route('mrn') }}">{{ __('mrn') }}</a>
                                     <a class="nav-link" href="{{ Route('mrn.yarn') }}">Add Yarn</a>
                                     <a class="nav-link" href="{{ Route('mrn.others') }}">Add Other</a>
                                 </nav>

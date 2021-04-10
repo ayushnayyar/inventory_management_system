@@ -99,38 +99,56 @@ class OrderController extends Controller
 
     public function updateOrder($order_id, Request $request){
         $order = Order::find($order_id);
-        $order->beam=$request->beam;
-        $order->dispatched=$request->dispatched;
-        $current_stock = $order->stock - ($request->dispatched);
-        $order->current_stock = $current_stock;
+        $order->cone_stock = $request->cone_stock;
+        $order->beam_floor = $request->beam_floor;
+        $order->beam_machine = $request->beam_machine;
+        $order->weft = $request->weft;
+        $order->fabric_stock = $request->fabric_stock;
+        $order->dispatched = $request->dispatched;
+        $current_stock = $order->actual_stock - $order->return;
+        $order->current_stock = $current_stock; 
         $order->save();
         $transaction = new Transaction();
         $transaction->order_id = $order->id;
         $transaction->party_id = $order->party_id;
         $transaction->item_id = $order->item_id;
-        $transaction->stock = $order->stock;
-        $transaction->current_stock = $current_stock;
-        $transaction->beam = $request->beam;
-        $transaction->dispatched = $request->dispatched;
-        $transaction->item_name = $order->item_name;
+        $transaction->mrn_id = $order->mrn_id;
+        $transaction->invoice_no = $order->invoice_no;
         $transaction->party_name = $order->party_name;
+        $transaction->actual_recieved_from = $order->actual_recieved_from;
+        $transaction->item_name = $order->item_name;
+        $transaction->shade = $order->shade;
+        $transaction->recieved_stock = $order->recieved_stock;
+        $transaction->actual_stock = $order->actual_stock;
+        $transaction->return_stock = $order->return_stock;
+        $transaction->current_stock = $order->current_stock;
+        $transaction->cone_stock = $order->cone_stock;
+        $transaction->beam_machine = $order->beam_machine;
+        $transaction->beam_floor = $order->beam_floor;
+        $transaction->weft = $order->weft;
+        $transaction->fabric_stock = $order->fabric_stock;
+        $transaction->dispatched = $order->dispatched;
+        $transaction->short_stock = $order->short_stock;
         $transaction->save();
         $ts = DB::table('transactions')->where('order_id','=',$order_id)->get();
         $dispatched = 0;
         foreach($ts as $t){
             $dispatched = $dispatched + $t->dispatched;
         }
-        $order->current_stock = $order->stock - $dispatched;
+        $order->current_stock = $order->actual_stock-$order->return_stock- $dispatched;
         $order->dispatched = $dispatched;
         $order->save();
-        $transaction->current_stock = $transaction->stock - $dispatched;
+        $transaction->current_stock = $transaction->actual_stock-$transaction->return_stock - $dispatched;
         $transaction->save();
         return redirect()->route('order');
     }
 
     public function viewOrder($order_id){
        $transactions = DB::table('transactions')->where('order_id', $order_id)->get();
-       return view('order.viewOrder', compact('transactions'));
+       foreach ($transactions as $transaction) {
+           $short_stock = $transaction->short_stock;
+       }
+       return view('order.viewOrder', compact('transactions', 'short_stock'));
     }
 
     public function deleteOrder($order_id){

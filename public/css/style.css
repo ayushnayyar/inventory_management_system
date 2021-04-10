@@ -10328,3 +10328,7 @@ select:-webkit-autofill {
 /* .checkbox-checked-bg input:checked ~ .checkmark {
   background-color: #1B1F22  !important;
 } */
+
+h1,h4 {
+  color: rgba(255, 255, 255, 0.644) !important;
+}
