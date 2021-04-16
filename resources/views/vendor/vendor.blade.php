@@ -3,7 +3,6 @@
 <div id="layoutSidenav_content">
   <div>
     <div class="d-flex justify-content-between m-2">
-
       <div class="">
         <div class="input-group rounded">
           <input type="search" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -16,6 +15,7 @@
       <div class="add_vendor_button">
         <a class="btn submit-button-color btn-block font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
       </div>
+
     </div>
 
     <div class="m-2">
