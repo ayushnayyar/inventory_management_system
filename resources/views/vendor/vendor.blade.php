@@ -1,10 +1,23 @@
 @extends('layouts.app')
 @section('content')
-  <div id="layoutSidenav_content">
-   <div>
-   <div class="ml-2 mr-2">
-      <a class="btn submit-button-color mb-2 mt-2 btn-block font-weight-bold p-2" href="{{ Route('addvendor') }}">Add Vendor</a>
+<div id="layoutSidenav_content">
+  <div>
+    <div class="d-flex justify-content-between m-2">
+
+      <div class="">
+        <div class="input-group rounded">
+          <input type="search" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <span class="input-group-text border-0 search-box-icon" id="search-addon">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="add_vendor_button">
+        <a class="btn submit-button-color btn-block font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
+      </div>
     </div>
+
     <div class="m-2">
 
       <table id="customers" class='table table-dark table-hover table-responsive-sm'>
@@ -24,6 +37,6 @@
         @endforeach
       </table>
     </div>
-    </div>
   </div>
+</div>
 @endsection

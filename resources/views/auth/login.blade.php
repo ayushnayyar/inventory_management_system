@@ -2,8 +2,9 @@
 
 @section('content')
 <div id="layoutSidenav_content">
+<div>
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="card mt-2" style="background-color: #212529;">
                 <div class="card-header label-color">{{ __('Login') }}</div>
 
@@ -69,5 +70,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
