@@ -10,15 +10,15 @@
             <div class="row mr-2 ml-2">
                 <div class="form-group col-5">
                     <label class='mt-3 label-color' for="name">Vendor Name</label>
-                    <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Vendor Name" name="party_name">
+                    <input type="text" class="form-control input-bg-color" id="" placeholder="Enter Vendor Name" name="party_name">
                 </div>
                 <div class="form-group col-5">
                     <label class='mt-3 label-color' for="name">GST No.</label>
-                    <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter GST No." name="gst_no">
+                    <input type="text" class="form-control input-bg-color" id="" placeholder="Enter GST No." name="gst_no">
                 </div>
                 <div class="form-group col-5">
                     <label class='mt-3 label-color' for="name">Vendor Address</label>
-                    <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Vendor Address" name="address">
+                    <input type="text" class="form-control input-bg-color" id="" placeholder="Enter Vendor Address" name="address">
                 </div>
             </div>
             <div class="mr-2 ml-4">
