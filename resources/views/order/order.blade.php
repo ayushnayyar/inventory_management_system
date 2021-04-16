@@ -2,9 +2,22 @@
 @section('content')
 <div id="layoutSidenav_content">
   <div class="">
+  <div class="d-flex justify-content-between m-2">
+      <div class="">
+        <div class="input-group rounded">
+          <input type="search" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <span class="input-group-text border-0 search-box-icon" id="search-addon">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
 
-    <a class="btn update-btn-color m-2" href="{{ Route('mrn.yarn') }}">Add Order</a>
-    <a class="btn view-btn-color m-2" href="{{ Route('reportorder') }}">Generate Report</a>
+      <div class="add_vendor_button">
+        <a class="btn update-btn-color font-weight-bold" href="{{ Route('mrn.yarn') }}">Add Order</a>
+        <a class="btn view-btn-color font-weight-bold" href="{{ Route('reportorder') }}">Generate Report</a>
+      </div>
+
+    </div>
     <div class="m-2">
       <table id="orders" class='table table-dark table-hover table-responsive-sm'>
         <tr>

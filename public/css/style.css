@@ -10253,7 +10253,7 @@ body {
 }
 .dashboard-text{
   font-weight: 500;
-  color: #6e7381;
+  color: #42444b;
 }
 
 .label-color{
@@ -10331,4 +10331,11 @@ select:-webkit-autofill {
 
 h1,h4 {
   color: rgba(255, 255, 255, 0.644) !important;
+}
+
+/* search box and icon */
+
+.search-box-icon{
+  color: #1b1f22;
+  background-color: #6edac5;
 }
