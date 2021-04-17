@@ -63,31 +63,8 @@ class OrderController extends Controller
         $order->item_id = $itemId;
         $order->actual_recieved_from =$request->actual_recieved_from; 
         $order->save();
-        $joinData = DB::table('orders')->leftJoin('transactions','orders.id','=','transactions.order_id')->select('orders.*')->orderBy('created_at', 'asc')->get();
         $transaction = new Transaction();
-        foreach($joinData as $data){
-        $transaction->order_id = $data->id;
-        $transaction->party_id = $data->party_id;
-        $transaction->item_id = $data->item_id;
-        $transaction->mrn_id = $data->mrn_id;
-        $transaction->invoice_no = $data->invoice_no;
-        $transaction->party_name = $data->party_name;
-        $transaction->actual_recieved_from = $data->actual_recieved_from;
-        $transaction->item_name = $data->item_name;
-        $transaction->shade = $data->shade;
-        $transaction->recieved_stock = $data->recieved_stock;
-        $transaction->actual_stock = $data->actual_stock;
-        $transaction->return_stock = $data->return_stock;
-        $transaction->current_stock = $data->current_stock;
-        $transaction->cone_stock = $data->cone_stock;
-        $transaction->beam_machine = $data->beam_machine;
-        $transaction->beam_floor = $data->beam_floor;
-        $transaction->weft = $data->weft;
-        $transaction->fabric_stock = $data->fabric_stock;
-        $transaction->dispatched = $data->dispatched;
-        $transaction->short_stock = $data->short_stock;
-        $transaction->save();
-        }
+        $transaction->store_transaction();
         return redirect()->route('order');
     }
 
@@ -107,28 +84,7 @@ class OrderController extends Controller
         $current_stock = $order->actual_stock - $order->return;
         $order->current_stock = $current_stock; 
         $order->save();
-        $transaction = new Transaction();
-        $transaction->order_id = $order->id;
-        $transaction->party_id = $order->party_id;
-        $transaction->item_id = $order->item_id;
-        $transaction->mrn_id = $order->mrn_id;
-        $transaction->invoice_no = $order->invoice_no;
-        $transaction->party_name = $order->party_name;
-        $transaction->actual_recieved_from = $order->actual_recieved_from;
-        $transaction->item_name = $order->item_name;
-        $transaction->shade = $order->shade;
-        $transaction->recieved_stock = $order->recieved_stock;
-        $transaction->actual_stock = $order->actual_stock;
-        $transaction->return_stock = $order->return_stock;
-        $transaction->current_stock = $order->current_stock;
-        $transaction->cone_stock = $order->cone_stock;
-        $transaction->beam_machine = $order->beam_machine;
-        $transaction->beam_floor = $order->beam_floor;
-        $transaction->weft = $order->weft;
-        $transaction->fabric_stock = $order->fabric_stock;
-        $transaction->dispatched = $order->dispatched;
-        $transaction->short_stock = $order->short_stock;
-        $transaction->save();
+        $transaction = Transaction::update_transaction($order,$order_id);
         $ts = DB::table('transactions')->where('order_id','=',$order_id)->get();
         $dispatched = 0;
         foreach($ts as $t){
@@ -137,8 +93,6 @@ class OrderController extends Controller
         $order->current_stock = $order->actual_stock-$order->return_stock- $dispatched;
         $order->dispatched = $dispatched;
         $order->save();
-        $transaction->current_stock = $transaction->actual_stock-$transaction->return_stock - $dispatched;
-        $transaction->save();
         return redirect()->route('order');
     }
 
