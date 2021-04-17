@@ -14,7 +14,7 @@
 
       <div class="add_vendor_button">
         <a class="btn update-btn-color font-weight-bold" href="{{ Route('mrn.yarn') }}">Add Order</a>
-        <a class="btn view-btn-color font-weight-bold" href="{{ Route('reportorder') }}">Generate Report</a>
+        <a class="btn view-btn-color font-weight-bold" href="">Generate Report</a>
       </div>
 
     </div>

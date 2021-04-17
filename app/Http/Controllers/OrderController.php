@@ -9,9 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\Vendor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\Exports\OrdersExport;
 use App\Models\Mrn;
-use Excel;
+
 
 class OrderController extends Controller
 {
@@ -158,8 +157,5 @@ class OrderController extends Controller
         $mrn->delete();
         $order->delete();
         return redirect()->route('order'); 
-    }
-    public function exportIntoCSV(){
-        return Excel::download(new OrdersExport,'orders.csv');
     }
 }

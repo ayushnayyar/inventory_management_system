@@ -17,8 +17,4 @@ class Order extends Model
     public function material(){
         return $this->hasOne('App\Models\Material', 'item_id' , 'id');
     }
-    public static function getOrders(){
-        $orders = DB::table('orders')->select('id','party_name','item_name','stock','current_stock','beam','dispatched')->get()->toArray();
-        return $orders;
-    }
 }
