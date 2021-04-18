@@ -15,3 +15,18 @@
         $("body").toggleClass("sb-sidenav-toggled");
     });
 })(jQuery);
+
+   $(document).ready(function () {
+            $("#myother").click(function () {
+                $("#other").css("display", "block")
+                $("#yarn").css("display", "none")
+            })
+            $("#myyarn").click(function () {
+                $("#other").css("display", "none")
+                $("#yarn").css("display", "block")
+            })
+            document.getElementById("myyarn").click();
+
+            
+        });
+        

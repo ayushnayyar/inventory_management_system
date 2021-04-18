@@ -10337,5 +10337,10 @@ h1,h4 {
 
 .search-box-icon{
   color: #1b1f22;
-  background-color: #6edac5;
+  background-color: #9debdb;
+}
+
+/* universal bg color */
+.bg-color-content{
+  background-color: #1b1f22 !important;
 }
