@@ -28,8 +28,8 @@
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name="mrn_no">
                 </div>
                 <div class="form-group col-4">
-                  <label class="mt-3" for="name" class="label-color">Select Vendor</label>
-                  <select name="vendor_name">
+                  <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor</label>
+                  <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle">
                     @foreach($vendors as $vendor)
                     <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
                     @endforeach
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group col-4">
                   <label class="mt-3" for="name" class="label-color">Select Material</label>
-                  <select name="item_name" class='form-select'>
+                  <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle' >
                     @foreach($materials as $material)
                     <option value="{{ $material->material_name }}">{{ $material->material_name }}</option>
                     @endforeach
@@ -72,7 +72,7 @@
                   <input type="text" class="form-control input-bg-color" placeholder="" name="description">
                 </div>
                 <div class="col-4">
-                  <button type="submit" class="d-block btn btn-sm submit-button-color">Submit</button>
+                  <button type="submit" class="d-block btn btn-sm submit-button-color btn-align">Submit</button>
                 </div>
               </div>
             </form>
