@@ -30,7 +30,6 @@
                 <div class="form-group col-4">
                   <label class="mt-3" for="name" class="label-color">Select Vendor</label>
                   <select name="vendor_name">
-
                   </select>
                 </div>
                 <div class="form-group col-4">
