@@ -91,6 +91,7 @@ $transactionsCount = $transactions->count();
                                 </div>
                             </div>
                         </div> -->
+            @if (!Auth::guest())
             <div class="card mb-4" style="border: none;">
                 <div class="d-flex justify-content-between bg-dark">
                     <div>
@@ -178,6 +179,7 @@ $transactionsCount = $transactions->count();
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </main>
     @endsection
