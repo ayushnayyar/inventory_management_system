@@ -7565,6 +7565,7 @@ button.bg-dark:focus {
 .mt-3,
 .my-3 {
   margin-top: 1rem !important;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .mr-3,
@@ -10343,4 +10344,13 @@ h1,h4 {
 /* universal bg color */
 .bg-color-content{
   background-color: #1b1f22 !important;
+}
+
+.label-color-change{
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-align{
+  margin-left: 120%;
+  margin-top: 8%;
 }
