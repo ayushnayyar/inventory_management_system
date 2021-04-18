@@ -17,7 +17,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- yarn form -->
           <div class="card-body shadow p-2 mb-4 rounded active bg-color-content" id="yarn">
             <form class="mt-4" method="POST" action="{{ Route('mrnyarn.store') }}">
@@ -30,12 +30,17 @@
                 <div class="form-group col-4">
                   <label class="mt-3" for="name" class="label-color">Select Vendor</label>
                   <select name="vendor_name">
+                    @foreach($vendors as $vendor)
+                    <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="form-group col-4">
                   <label class="mt-3" for="name" class="label-color">Select Material</label>
                   <select name="item_name" class='form-select'>
-
+                    @foreach($materials as $material)
+                    <option value="{{ $material->material_name }}">{{ $material->material_name }}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="form-group col-4">

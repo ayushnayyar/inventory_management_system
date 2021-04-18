@@ -12,7 +12,9 @@ class MrnController extends Controller
     public function index()
     {
         $mrns = Mrn::all();
-        return view('mrns.mrn', compact('mrns'));
+        $vendors = Vendor::all();
+        $materials = Material::all();
+        return view('mrns.mrn', compact('mrns','vendors','materials'));
     }
 
     public function store(Request $request){
