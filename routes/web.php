@@ -37,6 +37,8 @@ Route::post('/vendor/update/{vendor_id}', [App\Http\Controllers\VendorController
 
 Route::get('/vendor/delete/{vendor_id}', [App\Http\Controllers\VendorController::class, 'delete'])->name('vendor.delete');
 
+Route::post('/vendor/report', [App\Http\Controllers\VendorController::class, 'report'])->name('vendor.report');
+
 Route::get('/material', [App\Http\Controllers\MaterialController::class, 'index'])->name('material');
 
 Route::get('/addmaterial',function(){

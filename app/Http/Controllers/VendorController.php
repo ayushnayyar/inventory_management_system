@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VendorController extends Controller
 {
@@ -31,9 +32,22 @@ class VendorController extends Controller
         $vendor->save();
         return redirect()->route('vendor');
     }
+
     public function delete($vendor_id){
         $vendor = Vendor::find($vendor_id);
         $vendor->delete();
         return redirect()->route('vendor');
+    }
+
+    public function report(Request $request){
+        $party_name = $request->party_name;
+        $orders = DB::table('orders')->select('*')->where('party_name', $party_name)->get();
+        $totalYarnReturned = 0;
+        $totalInStock = 0;
+        foreach($orders as $order){
+            $totalYarnReturned = $totalYarnReturned + $order->dispatched;
+            $totalInStock = $totalInStock + $order->current_stock;
+        }
+        return view('vendor.report', compact('orders','totalYarnReturned','totalInStock'));
     }
 }

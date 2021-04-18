@@ -12,8 +12,22 @@
         </div>
       </div>
 
+      <form action="{{ Route('vendor.report') }}" method="POST">
+        @csrf
+        <div class="form-group ">
+                <label class="label-color" for="name">Select Vendor :</label>
+                <select name="party_name">
+                    @foreach($vendors as $vendor)
+                    <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn view-btn-color font-weight-bold">Generate Report</button>
+        </form>
+
       <div class="add_vendor_button">
         <a class="btn submit-button-color btn-block font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
+        
       </div>
 
     </div>
