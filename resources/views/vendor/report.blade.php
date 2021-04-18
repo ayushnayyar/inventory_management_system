@@ -46,9 +46,9 @@ function exportTableToCSV(filename) {
 
 </script>
 
-<div>
+<div id="layoutSidenav_content">
   <div class="m-2">
-      <table id="report" class='table table-dark table-hover table-responsive-sm mt-5'>
+      <table id="report" class='table table-dark table-hover table-responsive-sm'>
         <tr>
           <th>Invoide No</th>
           <th>Invoide Date</th>
