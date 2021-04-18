@@ -2,13 +2,128 @@
 @section('content')
 
 <div id="layoutSidenav_content">
-    <div style="margin-left: 40%;">
+  <div>
+    <div class="bg-color-content" id="menu">
+
+      <div class="menu bg-color-content" id="menu">
+        <div class="card bg-color-content">
+          <div class="card-header shadow p-2 mb-4 rounded">
+            <div class="d-flex justify-content-center">
+              <div class="col-5 text-center text-dark btn active m-1 submit-button-color" id="myyarn">
+                Yarn
+              </div>
+              <div class="col-5 text-center text-dark btn view-btn-color m-1" id="myother">
+                Other
+              </div>
+            </div>
+          </div>
+          
+          <!-- yarn form -->
+          <div class="card-body shadow p-2 mb-4 rounded active bg-color-content" id="yarn">
+            <form class="mt-4" method="POST" action="{{ Route('mrnyarn.store') }}">
+              @csrf
+              <div class="row ml-4 mr-4">
+                <div class="form-group col-4">
+                  <label for="exampleInputEmail1" class="label-color">MRN number:</label>
+                  <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name="mrn_no">
+                </div>
+                <div class="form-group col-4">
+                  <label class="mt-3" for="name" class="label-color">Select Vendor</label>
+                  <select name="vendor_name">
+
+                  </select>
+                </div>
+                <div class="form-group col-4">
+                  <label class="mt-3" for="name" class="label-color">Select Material</label>
+                  <select name="item_name" class='form-select'>
+
+                  </select>
+                </div>
+                <div class="form-group col-4">
+                  <label for="exampleInputPassword1" class="label-color">Actually received from:</label>
+                  <input type="text" class="form-control input-bg-color" placeholder="" name="actual_recieved_from">
+                </div>
+                <div class="form-group col-4">
+                  <label for="exampleInputPassword1" class="label-color">shade:</label>
+                  <input type="text" class="form-control input-bg-color" placeholder="" name="shade">
+                </div>
+                <div class="form-group col-4">
+                  <label for="exampleInputPassword1" class="label-color">Invoice number:</label>
+                  <input type="number" class="form-control input-bg-color" placeholder="" name="invoice_no">
+                </div>
+                <div class="form-group col-4">
+                  <label for="exampleInputPassword1" class="label-color">Stock received:</label>
+                  <input type="number" class="form-control input-bg-color" placeholder="" name="recieved_stock">
+                </div>
+                <div class="form-group col-4">
+                  <label for="exampleInputPassword1" class="label-color">Actual received weight:</label>
+                  <input type="number" class="form-control input-bg-color" placeholder="" name="actual_stock">
+                </div>
+                <div class="form-group col-4">
+                  <label for="exampleInputPassword1" class="label-color">Return:</label>
+                  <input type="number" class="form-control input-bg-color" placeholder="" name="return_stock">
+                </div>
+                <div class="form-group col-4">
+                  <label for="exampleInputPassword1" class="label-color">Description:</label>
+                  <input type="text" class="form-control input-bg-color" placeholder="" name="description">
+                </div>
+                <div class="col-4">
+                  <button type="submit" class="d-block btn btn-sm submit-button-color">Submit</button>
+                </div>
+              </div>
+            </form>
+
+
+          </div>
+
+          <!-- Other than yarn form-->
+          <div class="card-body shadow p-2 mb-4 rounded bg-color-content" id="other">
+
+            <form class="mt-4" method="POST" action="{{ Route('mrnothers.store') }}">
+              @csrf
+              <div class="row ml-4 mr-4">
+                <div class="form-group col-4">
+                  <label class="label-color" for="exampleInputEmail1">MRN number:</label>
+                  <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name='mrn_no'>
+                </div>
+                <div class="form-group col-4">
+                  <label class="label-color" for="exampleInputPassword1">Vendor name:</label>
+                  <input type="text" class="form-control input-bg-color" placeholder="" name='vendor_name'>
+                </div>
+                <div class="form-group col-4">
+                  <label class="label-color" for="exampleInputPassword1">Item name:</label>
+                  <input type="text" class="form-control input-bg-color" placeholder="" name="item_name">
+                </div>
+                <div class="form-group col-4">
+                  <label class="label-color" for="exampleInputPassword1">Description:</label>
+                  <input type="text" class="form-control input-bg-color" placeholder="" name='description'>
+                </div>
+                <div class="form-group col-4">
+                  <label class="label-color" for="exampleInputPassword1">Invoice number:</label>
+                  <input type="number" class="form-control input-bg-color" placeholder="" name='invoice_no'>
+                </div>
+                <div class="form-group col-4">
+                  <label class="label-color" for="exampleInputPassword1">Quantity:</label>
+                  <input type="number" class="form-control input-bg-color" placeholder="" name='quantity'>
+                </div>
+                <div class="col-4">
+
+                  <button type="submit" class="btn btn-sm submit-button-color">Submit</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="float-right p-2">
         <div class="btn-group" role="group" aria-label="Basic example">
-            <a type="button" href="{{ Route('mrn.others') }}" class="btn btn-info border border-dark">Others</a>
-            <a type="button" href="{{ Route('mrn.yarn') }}" color='white' class="btn btn-info border border-dark">Yarn</a>
+            <a type="button" href="{{ Route('mrn.others') }}" class="btn btn-info border border-dark mr-1">Others</a>
+            <a type="button" href="{{ Route('mrn.yarn') }}" color='white' class="btn btn-info border border-dark mr-1">Yarn</a>
 
         </div>
-    </div>
+    </div> -->
     <div class="m-2">
       <table id="orders" class='table table-dark table-hover table-responsive-sm'>
         <tr>
@@ -31,5 +146,21 @@
         @endforeach
       </table>
     </div>
+  </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $("#mydrink").click(function() {
+      $("#drink").css("display", "block")
+      $("#eat").css("display", "none")
+    })
+    $("#myeat").click(function() {
+      $("#drink").css("display", "none")
+      $("#eat").css("display", "block")
+    })
+    document.getElementById("myeat").click();
+
+
+  });
+</script>
 @endsection
