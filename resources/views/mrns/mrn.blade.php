@@ -28,16 +28,16 @@
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name="mrn_no">
                 </div>
                 <div class="form-group col-4">
-                  <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor</label>
-                  <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle">
+                  <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor :</label>
+                  <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle ml-2" style="width: 50%;">
                     @foreach($vendors as $vendor)
                     <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
                     @endforeach
                   </select>
                 </div>
                 <div class="form-group col-4">
-                  <label class="mt-3" for="name" class="label-color">Select Material</label>
-                  <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle' >
+                  <label class="mt-3" for="name" class="label-color">Select Material :</label>
+                  <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle ml-2' style="width: 50%;">
                     @foreach($materials as $material)
                     <option value="{{ $material->material_name }}">{{ $material->material_name }}</option>
                     @endforeach
@@ -129,7 +129,13 @@
         </div>
     </div> -->
     <div class="m-2">
-      <table id="orders" class='table table-dark table-hover table-responsive-sm'>
+    <div class="input-group rounded col-3">
+          <input type="search" data-table= ".search-table" data-count = "#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <span class="input-group-text border-0 search-box-icon" id="search-addon">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      <table id="orders" class='search-table table table-dark table-hover table-responsive-sm mt-2'>
         <tr>
           <th>Item Name</th>
           <th>Vendor Name</th>

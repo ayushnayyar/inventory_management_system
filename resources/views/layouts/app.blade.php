@@ -102,7 +102,7 @@
                             </a>
                             <div class="collapse" id="collapseMrn" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="{{ (\Request::route()->getName() == 'mrn') ? 'active text-primary' : '' }} nav-link" href="{{ route('mrn') }}">{{ __('mrn') }}</a>
+                                    <a class="{{ (\Request::route()->getName() == 'mrn') ? 'active text-primary' : '' }} nav-link" href="{{ route('mrn') }}">Mrn</a>
                                 </nav>
                             </div>
                             <!-- Vendors -->
@@ -218,6 +218,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/searchbar.js') }}"></script>
 </body>
 
 </html>

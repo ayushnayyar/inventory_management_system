@@ -5,7 +5,7 @@
   <div class="d-flex justify-content-between m-2">
       <div class="">
         <div class="input-group rounded">
-          <input type="search" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <input type="search" data-table=".search-table" data-count="#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="input-group-text border-0 search-box-icon" id="search-addon">
             <i class="fas fa-search"></i>
           </span>
@@ -19,7 +19,7 @@
 
     </div>
     <div class="m-2">
-      <table id="orders" class='table table-dark table-hover table-responsive-sm'>
+      <table id="orders" class='search-table table table-dark table-hover table-responsive-sm'>
         <tr>
           <th>Item Name</th>
           <th>Vendor Name</th>
