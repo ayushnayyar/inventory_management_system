@@ -1,17 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- @php
-use Illuminate\Support\Facades\DB;
-$vendors = DB::table('vendors')->get();
-$vendorsCount = $vendors->count();
-$materials = DB::table('materials')->get();
-$materialsCount = $materials->count();
-$orders = DB::table('orders')->get();
-$ordersCount = $orders->count();
-$transactions = DB::table('transactions')->get();
-$transactionsCount = $transactions->count();
-@endphp -->
+
 
 <div id="layoutSidenav_content">
     <main>
@@ -28,7 +18,7 @@ $transactionsCount = $transactions->count();
                             <div>00</div>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small dashboard-text stretched-link" href="#">View Details</a>
+                            <a class="small dashboard-text stretched-link" href="{{ Route('vendor') }}">View Details</a>
                             <div class="small dashboard-text"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
@@ -40,7 +30,7 @@ $transactionsCount = $transactions->count();
                             <div>00</div>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small dashboard-text stretched-link" href="#">View Details</a>
+                            <a class="small dashboard-text stretched-link" href="{{ Route('material') }}">View Details</a>
                             <div class="small dashboard-text"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
@@ -52,7 +42,7 @@ $transactionsCount = $transactions->count();
                             <div>00</div>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small dashboard-text stretched-link" href="#">View Details</a>
+                            <a class="small dashboard-text stretched-link" href="{{ Route('order') }}">View Details</a>
                             <div class="small dashboard-text"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
@@ -60,11 +50,11 @@ $transactionsCount = $transactions->count();
                 <div class="col-xl-3 col-md-6">
                     <div class="card dashboard-card-transaction dashboard-text mb-4">
                         <div class="card-body d-flex align-items-center justify-content-between">
-                            <div>Transactions</div>
+                            <div>Mrns</div>
                             <div>00</div>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small dashboard-text stretched-link" href="#">View Details</a>
+                            <a class="small dashboard-text stretched-link" href="{{ Route('mrn') }}">View Details</a>
                             <div class="small dashboard-text"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
