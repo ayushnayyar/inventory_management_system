@@ -46,12 +46,12 @@ function exportTableToCSV(filename) {
 
 </script>
 
-<div id="layoutSidenav_content">
+<div class='ml-5 mr-5 mb-3 mt-3' id="layoutSidenav_content">
   <div class="m-2">
       <table id="report" class='table table-dark table-hover table-responsive-sm'>
         <tr>
-          <th>Invoide No</th>
-          <th>Invoide Date</th>
+          <th>Invoice No</th>
+          <th>Invoice Date</th>
           <th>Vendor Name</th>
           <th>Item returned</th>
           <th>Recieved Stock</th>

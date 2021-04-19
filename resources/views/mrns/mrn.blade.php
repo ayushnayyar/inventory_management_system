@@ -20,7 +20,7 @@
 
           <!-- yarn form -->
           <div class="card-body shadow p-2 mb-4 rounded active bg-color-content" id="yarn">
-            <form class="mt-4" method="POST" action="{{ Route('mrnyarn.store') }}">
+            <form method="POST" action="{{ Route('mrnyarn.store') }}">
               @csrf
               <div class="row ml-4 mr-4">
                 <div class="form-group col-4">
