@@ -28,24 +28,16 @@
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name="mrn_no">
                 </div>
                 <div class="form-group col-4">
-                  <<<<<<< HEAD <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor :</label>
-                    <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle ml-2" style="width: 50%;">
-                      =======
-                      <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor</label>
-                      <select name="vendor_name" class="ml-1 btn btn-secondary btn-sm dropdown-toggle">
-                        >>>>>>> c8e8129e867e1b3fd6ddce1f7d85b2a895e663b8
+                   <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor </label>
+                    <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle ml-1" style="width: 50%;">  
                         @foreach($vendors as $vendor)
                         <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
                         @endforeach
                       </select>
                 </div>
                 <div class="form-group col-4">
-                  <<<<<<< HEAD <label class="mt-3" for="name" class="label-color">Select Material :</label>
-                    <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle ml-2' style="width: 50%;">
-                      =======
-                      <label class="mt-3" for="name" class="label-color">Select Material</label>
-                      <select name="item_name" class='ml-1 form-select btn btn-sm btn-secondary dropdown-toggle'>
-                        >>>>>>> c8e8129e867e1b3fd6ddce1f7d85b2a895e663b8
+                  <label class="mt-3" for="name" class="label-color">Select Material </label>
+                    <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle ml-1' style="width: 50%;">
                         @foreach($materials as $material)
                         <option value="{{ $material->material_name }}">{{ $material->material_name }}</option>
                         @endforeach
