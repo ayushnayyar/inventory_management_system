@@ -6,7 +6,7 @@
       <div class="">
         <div class="input-group rounded">
           <input type="search" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-          <span class="input-group-text border-0 search-box-icon" id="search-addon">
+          <span class="ml-2 input-group-text border-0 search-box-icon" id="search-addon">
             <i class="fas fa-search"></i>
           </span>
         </div>
@@ -21,13 +21,14 @@
               <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
               @endforeach
           </select>
-          <button type="submit" class="ml-3 btn view-btn-color font-weight-bold">Generate Report</button>
+          
         </div>
         
         </form>
 
       <div class="add_vendor_button">
-        <a class="btn submit-button-color btn-block font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
+        <a class="btn submit-button-color font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
+        <button type="submit" class="ml-2 btn view-btn-color font-weight-bold">Generate Report</button>
         
       </div>
 
