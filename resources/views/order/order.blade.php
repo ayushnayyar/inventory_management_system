@@ -1,24 +1,24 @@
 @extends('layouts.app')
 @section('content')
 <div id="layoutSidenav_content">
-  <div class="">
-  <div class="d-flex justify-content-between m-2">
+  <div class="ml-5 mr-5 mb-3 mt-3">
+  <div class="d-flex justify-content-between">
       <div class="">
         <div class="input-group rounded">
           <input type="search" data-table=".search-table" data-count="#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-          <span class="input-group-text border-0 search-box-icon" id="search-addon">
+          <span class="ml-2 input-group-text border-0 search-box-icon" id="search-addon">
             <i class="fas fa-search"></i>
           </span>
         </div>
       </div>
 
       <div class="add_vendor_button">
-        <a class="btn update-btn-color font-weight-bold" href="{{ Route('mrn.yarn') }}">Add Order</a>
-        <a class="btn view-btn-color font-weight-bold" href="">Generate Report</a>
+        <a class="btn submit-button-color font-weight-bold" href="{{ Route('mrn.yarn') }}">Add Order</a>
+        <a class="ml-2 btn view-btn-color font-weight-bold" href="">Generate Report</a>
       </div>
 
     </div>
-    <div class="m-2">
+    <div class="mb-3 mt-3">
       <table id="orders" class='search-table table table-dark table-hover table-responsive-sm'>
         <tr>
           <th>Item Name</th>

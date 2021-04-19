@@ -2,7 +2,7 @@
 @section('content')
 <div id="layoutSidenav_content">
   <div>
-  <div class="d-flex justify-content-between m-2">
+  <div class="d-flex justify-content-between ml-5 mr-5 mb-3 mt-3">
       <div class="">
         <div class="input-group rounded">
           <input type="search" data-table=".search-table" data-count = "#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -18,7 +18,7 @@
 
     </div>
     
-    <div class="m-2">
+    <div class="ml-5 mr-5 mb-3 mt-3">
 
       <table id="customers" class='search-table table table-dark table-hover table-responsive-sm'>
         <tr>

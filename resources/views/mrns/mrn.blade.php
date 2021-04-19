@@ -8,11 +8,11 @@
       <div class="menu bg-color-content" id="menu">
         <div class="card bg-color-content">
           <div class="card-header shadow p-2 mb-4 rounded">
-            <div class="d-flex justify-content-center">
-              <div class="col-5 text-center text-dark btn active m-1 submit-button-color" id="myyarn">
+            <div class="ml-5 mr-5 d-flex justify-content-center">
+              <div class="col-6 text-center text-dark btn active m-1 submit-button-color" id="myyarn">
                 Yarn
               </div>
-              <div class="col-5 text-center text-dark btn view-btn-color m-1" id="myother">
+              <div class="col-6 text-center text-dark btn view-btn-color m-1" id="myother">
                 Other
               </div>
             </div>
@@ -20,59 +20,69 @@
 
           <!-- yarn form -->
           <div class="card-body shadow p-2 mb-4 rounded active bg-color-content" id="yarn">
-            <form class="mt-4" method="POST" action="{{ Route('mrnyarn.store') }}">
+            <form method="POST" action="{{ Route('mrnyarn.store') }}">
               @csrf
               <div class="row ml-4 mr-4">
                 <div class="form-group col-4">
-                  <label for="exampleInputEmail1" class="label-color">MRN number:</label>
+                  <label for="exampleInputEmail1" class="label-color">MRN Number</label>
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name="mrn_no">
                 </div>
                 <div class="form-group col-4">
-                  <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor :</label>
-                  <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle ml-2" style="width: 50%;">
-                    @foreach($vendors as $vendor)
-                    <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
-                    @endforeach
-                  </select>
+                  <<<<<<< HEAD <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor :</label>
+                    <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle ml-2" style="width: 50%;">
+                      =======
+                      <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor</label>
+                      <select name="vendor_name" class="ml-1 btn btn-secondary btn-sm dropdown-toggle">
+                        >>>>>>> c8e8129e867e1b3fd6ddce1f7d85b2a895e663b8
+                        @foreach($vendors as $vendor)
+                        <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
+                        @endforeach
+                      </select>
                 </div>
                 <div class="form-group col-4">
-                  <label class="mt-3" for="name" class="label-color">Select Material :</label>
-                  <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle ml-2' style="width: 50%;">
-                    @foreach($materials as $material)
-                    <option value="{{ $material->material_name }}">{{ $material->material_name }}</option>
-                    @endforeach
-                  </select>
+                  <<<<<<< HEAD <label class="mt-3" for="name" class="label-color">Select Material :</label>
+                    <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle ml-2' style="width: 50%;">
+                      =======
+                      <label class="mt-3" for="name" class="label-color">Select Material</label>
+                      <select name="item_name" class='ml-1 form-select btn btn-sm btn-secondary dropdown-toggle'>
+                        >>>>>>> c8e8129e867e1b3fd6ddce1f7d85b2a895e663b8
+                        @foreach($materials as $material)
+                        <option value="{{ $material->material_name }}">{{ $material->material_name }}</option>
+                        @endforeach
+                      </select>
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Actually received from:</label>
+                  <label for="exampleInputPassword1" class="label-color">Actually Received From</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="actual_recieved_from">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">shade:</label>
+                  <label for="exampleInputPassword1" class="label-color">Shade</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="shade">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Invoice number:</label>
+                  <label for="exampleInputPassword1" class="label-color">Invoice Number</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="invoice_no">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Stock received:</label>
+                  <label for="exampleInputPassword1" class="label-color">Stock Received</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="recieved_stock">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Actual received weight:</label>
+                  <label for="exampleInputPassword1" class="label-color">Actual Received Weight</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="actual_stock">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Return:</label>
+                  <label for="exampleInputPassword1" class="label-color">Return</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="return_stock">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Description:</label>
+                  <label for="exampleInputPassword1" class="label-color">Description</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="description">
                 </div>
+              </div>
+              <div class='row ml-4 mr-4 mb-3'>
                 <div class="col-4">
-                  <button type="submit" class="d-block btn btn-sm submit-button-color btn-align">Submit</button>
+                  <button type="submit" class="btn btn-sm submit-button-color">Submit</button>
                 </div>
               </div>
             </form>
@@ -87,31 +97,30 @@
               @csrf
               <div class="row ml-4 mr-4">
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputEmail1">MRN number:</label>
+                  <label class="label-color" for="exampleInputEmail1">MRN Number</label>
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name='mrn_no'>
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Vendor name:</label>
+                  <label class="label-color" for="exampleInputPassword1">Vendor Name</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name='vendor_name'>
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Item name:</label>
+                  <label class="label-color" for="exampleInputPassword1">Item Name</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="item_name">
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Description:</label>
+                  <label class="label-color" for="exampleInputPassword1">Description</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name='description'>
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Invoice number:</label>
+                  <label class="label-color" for="exampleInputPassword1">Invoice Number</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name='invoice_no'>
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Quantity:</label>
+                  <label class="label-color" for="exampleInputPassword1">Quantity</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name='quantity'>
                 </div>
-                <div class="col-4">
-
+                <div class="col-4 mb-3">
                   <button type="submit" class="btn btn-sm submit-button-color">Submit</button>
                 </div>
               </div>
@@ -128,14 +137,14 @@
 
         </div>
     </div> -->
-    <div class="m-2">
-    <div class="input-group rounded col-3">
-          <input type="search" data-table= ".search-table" data-count = "#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-          <span class="input-group-text border-0 search-box-icon" id="search-addon">
-            <i class="fas fa-search"></i>
-          </span>
-        </div>
-      <table id="orders" class='search-table table table-dark table-hover table-responsive-sm mt-2'>
+    <div class="ml-5 mr-5 mt-3 mb-3">
+      <div class="input-group rounded col-3">
+        <input type="search" data-table=".search-table" data-count="#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0 search-box-icon" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+      <table id="orders" class='search-table table table-dark table-hover table-responsive-sm'>
         <tr>
           <th>Item Name</th>
           <th>Vendor Name</th>
