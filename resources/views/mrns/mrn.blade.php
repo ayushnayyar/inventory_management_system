@@ -8,11 +8,11 @@
       <div class="menu bg-color-content" id="menu">
         <div class="card bg-color-content">
           <div class="card-header shadow p-2 mb-4 rounded">
-            <div class="d-flex justify-content-center">
-              <div class="col-5 text-center text-dark btn active m-1 submit-button-color" id="myyarn">
+            <div class="ml-5 mr-5 d-flex justify-content-center">
+              <div class="col-6 text-center text-dark btn active m-1 submit-button-color" id="myyarn">
                 Yarn
               </div>
-              <div class="col-5 text-center text-dark btn view-btn-color m-1" id="myother">
+              <div class="col-6 text-center text-dark btn view-btn-color m-1" id="myother">
                 Other
               </div>
             </div>
