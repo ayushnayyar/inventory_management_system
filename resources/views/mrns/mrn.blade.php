@@ -24,12 +24,12 @@
               @csrf
               <div class="row ml-4 mr-4">
                 <div class="form-group col-4">
-                  <label for="exampleInputEmail1" class="label-color">MRN number:</label>
+                  <label for="exampleInputEmail1" class="label-color">MRN Number</label>
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name="mrn_no">
                 </div>
                 <div class="form-group col-4">
                   <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor</label>
-                  <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle">
+                  <select name="vendor_name" class="ml-1 btn btn-secondary btn-sm dropdown-toggle">
                     @foreach($vendors as $vendor)
                     <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
                     @endforeach
@@ -37,42 +37,44 @@
                 </div>
                 <div class="form-group col-4">
                   <label class="mt-3" for="name" class="label-color">Select Material</label>
-                  <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle' >
+                  <select name="item_name" class='ml-1 form-select btn btn-sm btn-secondary dropdown-toggle' >
                     @foreach($materials as $material)
                     <option value="{{ $material->material_name }}">{{ $material->material_name }}</option>
                     @endforeach
                   </select>
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Actually received from:</label>
+                  <label for="exampleInputPassword1" class="label-color">Actually Received From</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="actual_recieved_from">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">shade:</label>
+                  <label for="exampleInputPassword1" class="label-color">Shade</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="shade">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Invoice number:</label>
+                  <label for="exampleInputPassword1" class="label-color">Invoice Number</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="invoice_no">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Stock received:</label>
+                  <label for="exampleInputPassword1" class="label-color">Stock Received</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="recieved_stock">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Actual received weight:</label>
+                  <label for="exampleInputPassword1" class="label-color">Actual Received Weight</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="actual_stock">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Return:</label>
+                  <label for="exampleInputPassword1" class="label-color">Return</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="return_stock">
                 </div>
                 <div class="form-group col-4">
-                  <label for="exampleInputPassword1" class="label-color">Description:</label>
+                  <label for="exampleInputPassword1" class="label-color">Description</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="description">
                 </div>
+              </div>
+              <div class='row ml-4 mr-4 mb-3'>
                 <div class="col-4">
-                  <button type="submit" class="d-block btn btn-sm submit-button-color btn-align">Submit</button>
+                  <button type="submit" class="btn btn-sm submit-button-color">Submit</button>
                 </div>
               </div>
             </form>
@@ -87,31 +89,30 @@
               @csrf
               <div class="row ml-4 mr-4">
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputEmail1">MRN number:</label>
+                  <label class="label-color" for="exampleInputEmail1">MRN Number</label>
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name='mrn_no'>
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Vendor name:</label>
+                  <label class="label-color" for="exampleInputPassword1">Vendor Name</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name='vendor_name'>
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Item name:</label>
+                  <label class="label-color" for="exampleInputPassword1">Item Name</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="item_name">
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Description:</label>
+                  <label class="label-color" for="exampleInputPassword1">Description</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name='description'>
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Invoice number:</label>
+                  <label class="label-color" for="exampleInputPassword1">Invoice Number</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name='invoice_no'>
                 </div>
                 <div class="form-group col-4">
-                  <label class="label-color" for="exampleInputPassword1">Quantity:</label>
+                  <label class="label-color" for="exampleInputPassword1">Quantity</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name='quantity'>
                 </div>
-                <div class="col-4">
-
+                <div class="col-4 mb-3">
                   <button type="submit" class="btn btn-sm submit-button-color">Submit</button>
                 </div>
               </div>
@@ -128,7 +129,7 @@
 
         </div>
     </div> -->
-    <div class="m-2">
+    <div class="ml-5 mr-5 mt-3 mb-3">
       <table id="orders" class='table table-dark table-hover table-responsive-sm'>
         <tr>
           <th>Item Name</th>

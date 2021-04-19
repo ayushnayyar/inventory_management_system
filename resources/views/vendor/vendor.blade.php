@@ -16,7 +16,7 @@
         @csrf
         <div class="form-group ">
                 <label class="label-color" for="name">Select Vendor :</label>
-                <select name="party_name">
+                <select class="btn btn-secondary btn-sm dropdown-toggle" name="party_name">
                     @foreach($vendors as $vendor)
                     <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
                     @endforeach
