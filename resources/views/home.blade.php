@@ -103,7 +103,7 @@ $transactionsCount = $transactions->count();
                     <div>
                         <div class="input-group rounded p-2">
                             <input type="search" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                            <span class="input-group-text border-0 search-box-icon" id="search-addon">
+                            <span class="ml-2 input-group-text border-0 search-box-icon" id="search-addon">
                                 <i class="fas fa-search"></i>
                             </span>
                         </div>

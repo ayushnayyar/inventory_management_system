@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div id="layoutSidenav_content">
-    <div class="">
+    <div class="ml-5 mr-5 mb-3 mt-3">
         <h4 class="text-white">Add Material</h4>
         <form action="{{ Route('material.store') }}" method="POST">
             @csrf
-            <div class="row ml-2 mr-2">
+            <div class="row">
                 <div class="form-group col-4">
                     <label class='mt-3 label-color' for="name">Material Name</label>
                     <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Name" name="material_name">
@@ -15,8 +15,10 @@
                     <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Type" name="material_type">
                 </div>
             </div>
-            <div class="row ml-4 mr-2">
-                <input type="submit" class="d-flex btn btn-sm submit-button-color mt-3" name="submit">
+            <div class="row">
+                <div class='form-group col-4'>
+                    <input type="submit" class="d-flex btn btn-sm submit-button-color mt-3" name="submit">
+                </div>
             </div>
         </form>
     </div>
