@@ -22,11 +22,12 @@
               @endforeach
           </select>
         </div>
-        <button type="submit" class="ml-2 btn view-btn-color font-weight-bold">Generate Report</button> 
-      </form>
+        <button type="submit" class="ml-2 btn view-btn-color font-weight-bold" >Generate Report</button>
+        </form>
 
       <div class="add_vendor_button">
         <a class="btn submit-button-color font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
+        
       </div>
 
     </div>

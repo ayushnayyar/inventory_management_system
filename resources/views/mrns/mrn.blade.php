@@ -129,8 +129,8 @@
 
         </div>
     </div> -->
-    <div class="ml-5 mr-5 mt-3 mb-3">
-      <div class="input-group rounded col-3">
+    <div class="ml-5 mr-5 mt-1 mb-3">
+      <div class="input-group rounded col-3 mb-3">
         <input type="search" data-table=".search-table" data-count="#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
         <span class="input-group-text border-0 search-box-icon" id="search-addon">
           <i class="fas fa-search"></i>
