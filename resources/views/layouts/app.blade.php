@@ -32,7 +32,10 @@
     <div id="app">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ __('Inventory Management') }}
+                <!-- {{ __('Inventory Management') }} -->
+                
+                <img class="logo-image" src="logo1.png" class="img-fluid" height="10" alt="">
+                {{ __('Inventory Management') }} 
             </a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->

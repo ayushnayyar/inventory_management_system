@@ -10354,3 +10354,14 @@ h1,h4 {
   margin-left: 120%;
   margin-top: 8%;
 }
+
+.logo-image{
+  width: 46px;
+  height: 46px;
+  overflow: hidden;
+  margin-top: -6px;
+}
+
+#sidebarToggle{
+  padding-left: 60px;
+}
