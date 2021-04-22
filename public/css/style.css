@@ -10354,3 +10354,11 @@ h1,h4 {
   margin-left: 120%;
   margin-top: 8%;
 }
+.aligns{
+  text-align: center;
+  
+}
+.input-back-color{
+  background-color: #1b1f22 !important;
+  color: rgba(255, 255, 255, 0.644) !important;
+}
