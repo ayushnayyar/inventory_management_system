@@ -27,7 +27,6 @@
 
       <div class="add_vendor_button">
         <a class="btn submit-button-color font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
-        
       </div>
 
     </div>

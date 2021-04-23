@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('content')
-
 
 <div id="layoutSidenav_content">
     <main>
