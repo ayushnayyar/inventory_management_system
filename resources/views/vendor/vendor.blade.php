@@ -5,29 +5,37 @@
     <div class="d-flex justify-content-between ml-5 mr-5 mt-3 mb-3">
       <div class="">
         <div class="input-group rounded">
-          <input type="search" data-table= ".search-table" data-count = "#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <input type="search" data-table=".search-table" data-count="#count" class="form-control rounded mr-1 input-bg-color" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="ml-2 input-group-text border-0 search-box-icon" id="search-addon">
             <i class="fas fa-search"></i>
           </span>
         </div>
       </div>
 
-      <form action="{{ Route('vendor.report') }}" method="POST">
-        @csrf
-        <div class="form-group ">
-          <label class="label-color" for="name">Select Vendor</label>
-          <select class="ml-1 btn btn-secondary btn-sm dropdown-toggle" name="party_name">
-              @foreach($vendors as $vendor)
-              <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
-              @endforeach
-          </select>
-        </div>
-        <button type="submit" class="ml-2 btn view-btn-color font-weight-bold" >Generate Report</button>
+      
+        <form class="form-inline" action="{{ Route('vendor.report') }}" method="POST">
+          @csrf
+          <div class="form-group ">
+            <label class="label-color" for="name">Select Vendor</label>
+            
+              <select class="ml-1 select-input dropdown-toggle" name="party_name">
+                @foreach($vendors as $vendor)
+                <option class="select-input-option" value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
+                @endforeach
+              </select>
+            
+          </div>
+      <div>
+
+        <button type="submit" class="ml-2 btn update-btn-color font-weight-bold">Generate Report</button>
+      </div>
+          
         </form>
+      
 
       <div class="add_vendor_button">
         <a class="btn submit-button-color font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
-        
+
       </div>
 
     </div>

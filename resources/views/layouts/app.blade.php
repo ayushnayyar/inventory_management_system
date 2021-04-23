@@ -96,7 +96,7 @@
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <!-- MRN -->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMrn" aria-expanded="false" aria-controls="collapseMrn">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-paperclip"></i></div>
                                 MRN
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -107,19 +107,19 @@
                             </div>
                             <!-- Vendors -->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                                 Vendors
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ Route('vendor') }}">View Vendors</a>
-                                    <a class="nav-link" href="{{ Route('addvendor') }}">Add Vendor</a>
+                                    <a class="nav-link" href="{{ Route('addvendor') }}">Add vendor</a>
                                 </nav>
                             </div>
                             <!-- Materials -->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMaterials" aria-expanded="false" aria-controls="collapseMaterials">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-industry"></i></div>
                                 Materials
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -131,7 +131,7 @@
                             </div>
                             <!-- Orders -->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
                                 Orders
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -195,7 +195,7 @@
                             </a>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                MRN
+                                Monthly
                             </a>
                         </div>
                     </div>
