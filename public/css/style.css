@@ -10357,7 +10357,7 @@ h1,h4 {
 
 /* select tag  */
 .select-input{
-  color: rgba(255, 255, 255, 0.5);;
+  color: rgba(255, 255, 255, 0.5);
   background-color: #1b1f22 !important;
   width: 50px !important;
 }
@@ -10366,13 +10366,30 @@ h1,h4 {
 }
 .select-input-option:hover {
   background-color: #488f8f !important; 
-.logo-image{
+}
+/* .logo-image{
   width: 46px;
   height: 46px;
   overflow: hidden;
   margin-top: -6px;
-}
+} */
 
 #sidebarToggle{
-  padding-left: 60px;
+    margin: 60px;
+}
+/* modal */
+.modal-bg{
+  background-color: #1b1f22 !important;
+}
+.modal-title{
+  color: white;
+}
+.modal-header{
+  border: none !important;
+}
+.modal-footer{
+  border: none !important;
+}
+.close{
+  color: rgba(255, 255, 255, 0.5)  !important;
 }

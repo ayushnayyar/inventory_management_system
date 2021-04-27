@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-between ml-5 mr-5 mb-3 mt-3">
       <div class=""></div>
       <div class="add_vendor_button">
-        <a class="btn submit-button-color btn-block font-weight-bold" href="{{ Route('addmaterial') }}">Add Material</a>
+        <button type="button" class="btn submit-button-color btn-block font-weight-bold" data-toggle="modal" data-target="#materialModal">Add Material</button>
       </div>
     </div>
 
@@ -38,13 +38,73 @@
           <tr class='table-active'>
             <td>{{ $material->material_name }}</td>
             <td>{{ $material->material_type }}</td>
-            <td><a href="{{ Route('material.edit', [$material->id]) }}" class="btn btn-sm update-btn-color">Update</a></td>
+            <td><button class="btn btn-sm update-btn-color" data-toggle="modal" data-target="#exampleModal-{{ $material->id }}">Update</button></td>
+            <!-- update material modal -->
+            <div class="modal fade" id="exampleModal-{{ $material->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content modal-bg">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Material</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="{{ Route('material.update', [$material->id]) }}" method="POST">
+                      @csrf
+                      <div class="form-group">
+                        <label class='mt-3 label-color' for="name">Item Name</label>
+                        <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Name" name="material_name" value="{{ $material->material_name }}">
+                      </div>
+                      <div class="form-group">
+                        <label class='mt-3 label-color' for="name">Item type</label>
+                        <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Type" name="material_type" value="{{ $material->material_type }}">
+                      </div>
+                      <input type="submit" class="btn submit-button-color mt-3" name="submit">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
             <td><a href="{{ Route('material.delete', [$material->id]) }}" class="btn btn-sm delete-btn-color">Delete</a></td>
           </tr>
           @endforeach
         </table>
       </div>
     </div>
+    <!-- add material modal -->
+    <div class="modal fade" id="materialModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-bg">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add material</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="{{ Route('material.store') }}" method="POST">
+            @csrf
+            <div class="">
+                <div class="form-group">
+                    <label class='mt-3 label-color' for="name">Material Name</label>
+                    <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Name" name="material_name">
+                </div>
+                <div class="form-group">
+                    <label class='mt-3 label-color' for="name">Material Type</label>
+                    <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Type" name="material_type">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class='form-group'>
+                    <input type="submit" class="d-flex btn submit-button-color mt-3" name="submit">
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 </div>
 @endsection

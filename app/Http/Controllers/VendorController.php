@@ -48,6 +48,6 @@ class VendorController extends Controller
             $totalYarnReturned = $totalYarnReturned + $order->dispatched;
             $totalInStock = $totalInStock + $order->current_stock;
         }
-        return view('vendor.report', compact('orders','totalYarnReturned','totalInStock'));
+        return view('report', compact('orders','totalYarnReturned','totalInStock'));
     }
 }
