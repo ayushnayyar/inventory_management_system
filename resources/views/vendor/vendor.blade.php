@@ -2,31 +2,45 @@
 @section('content')
 <div id="layoutSidenav_content">
   <div>
-    <div class="d-flex justify-content-between ml-5 mr-5 mt-3 mb-3">
-
-      <form action="{{ Route('vendor.report') }}" method="POST">
-        @csrf
-        <div class="d-flex justify-content-between">
-          <div class="form-group ">
-            <label class="label-color" for="name">Select Vendor</label>
-            <select class="ml-1 btn btn-secondary btn-sm dropdown-toggle" name="party_name">
-              @foreach($vendors as $vendor)
-              <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
-              @endforeach
-            </select>
+  <div class="mt-3 mb-3" style="margin-left: 87%;">
+      <button class="btn font-weight-bold submit-button-color" data-toggle="modal" data-target="#vendorModal">Add Vendor</button>
+  </div>
+   
+    <!-- add vendor modal -->
+    <div class="modal fade" id="vendorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content modal-bg">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div>
-            <button type="submit" class="ml-2 btn view-btn-color font-weight-bold">Generate Report</button>
+          <div class="modal-body">
+          <form action="{{ Route('vendor.store') }}" method="POST">
+            @csrf
+            <div class="mb-3 mt-3">
+                <div class="form-group">
+                    <label class='mt-3 label-color' for="name">Vendor Name</label>
+                    <input type="text" class="form-control input-bg-color" id="" placeholder="Enter Vendor Name" name="party_name">
+                </div>
+                <div class="form-group">
+                    <label class='mt-3 label-color' for="name">GST No.</label>
+                    <input type="text" class="form-control input-bg-color" id="" placeholder="Enter GST No." name="gst_no">
+                </div>
+                <div class="form-group">
+                    <label class='mt-3 label-color' for="name">Vendor Address</label>
+                    <input type="text" class="form-control input-bg-color" id="" placeholder="Enter Vendor Address" name="address">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn submit-button-color mt-3" name="submit">
+            </div>
+        </form>
           </div>
         </div>
-      </form>
-
-      <div class="add_vendor_button">
-        <a class="btn submit-button-color font-weight-bold" href="{{ Route('addvendor') }}">Add Vendor</a>
       </div>
-
     </div>
-
     <div class="mt-2 mb-2 card bg-dark ml-5 mr-5" style="border: none;">
       <div class="d-flex justify-content-between bg-dark">
         <div>
@@ -58,7 +72,38 @@
             <td>{{ $vendor->party_name }}</td>
             <td>{{ $vendor->gst_no }}</td>
             <td>{{ $vendor->address }}</td>
-            <td><a href="{{ Route('vendor.edit',[$vendor->id]) }}" class="btn btn-sm update-btn-color">Update</a></td>
+            <td><button type="button" class="btn btn-sm update-btn-color" data-toggle="modal" data-target="#exampleModal-{{ $vendor->id }}" data-whatever="{{ $vendor->id }}">Update</button></td>
+            <!-- update vendor modal -->
+            <div class="modal fade" id="exampleModal-{{ $vendor->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content modal-bg">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Vendor</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="{{ Route('vendor.update', [$vendor->id]) }}" method="POST">
+                      @csrf
+                      <div class="form-group">
+                        <label class='mt-3' for="name">Vendor Name</label>
+                        <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Vendor Name" name="party_name" value="{{ $vendor->party_name }}">
+                      </div>
+                      <div class="form-group">
+                        <label class='mt-3' for="name">GST No.</label>
+                        <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter GST No." name="gst_no" value="{{ $vendor->gst_no }}">
+                      </div>
+                      <div class="form-group">
+                        <label class='mt-3' for="name">Vendor Address</label>
+                        <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Vendor Address" name="address" value="{{ $vendor->address }}">
+                      </div>
+                      <input type="submit" class="btn submit-button-color mt-3" name="submit">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
             <td><a href="{{ Route('vendor.delete',[$vendor->id]) }}" class="btn btn-sm delete-btn-color">Delete</a></td>
           </tr>
           @endforeach

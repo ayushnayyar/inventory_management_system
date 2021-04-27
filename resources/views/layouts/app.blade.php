@@ -29,16 +29,22 @@
 </head>
 
 <body class="sb-nav-fixed">
+    <?php
+    use Illuminate\Support\Facades\DB;
+    $vendors = DB::table('vendors')->select('*')->get();
+    ?>
     <div id="app">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <!-- {{ __('Inventory Management') }} -->
-                
-                <img class="logo-image" src="logo1.png" class="img-fluid" height="10" alt="">
-                {{ __('Inventory Management') }} 
+
+                <img class="logo-image" src="logo1.png" class="img-fluid" height="50" alt="">
+                {{ __('Inventory Management') }}
             </a>
+            <div>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search--> 
+            </div>
+            <!-- Navbar Search-->
             <!-- <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
@@ -117,7 +123,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ Route('vendor') }}">View Vendors</a>
-                                    <a class="nav-link" href="{{ Route('addvendor') }}">Add vendor</a>
+                                    <!-- <a class="nav-link" href="{{ Route('addvendor') }}">Add vendor</a> -->
                                 </nav>
                             </div>
                             <!-- Materials -->
@@ -129,7 +135,7 @@
                             <div class="collapse" id="collapseMaterials" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="{{ (\Request::route()->getName() == 'material') ? 'active text-primary' : '' }} nav-link" href="{{ route('material') }}">{{ __('Materials') }}</a>
-                                    <a class="nav-link" href="{{ Route('addmaterial') }}">Add Material</a>
+                                    <!-- <a class="nav-link" href="{{ Route('addmaterial') }}">Add Material</a> -->
                                 </nav>
                             </div>
                             <!-- Orders -->
@@ -159,47 +165,17 @@
 
                             @else
                             @endif
-                            <!--  -->
-                            <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div> -->
-                            <div class="sb-sidenav-menu-heading">Reports</div>
-                            <a class="nav-link" href="charts.html">
+                           
+                            <div class="sb-sidenav-menu-heading ">Reports</div>
+                            <div class="d-inline-flex ml-3">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Reconciliation
-                            </a>
-                            <a class="nav-link" href="tables.html">
+                                <button class="btn nav-link btn-link " data-toggle="modal" data-target="#reconciliation">Reconciliation</button>
+                            </div>
+
+                            <div class="d-inline-flex ml-3">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Monthly
-                            </a>
+                                <button class="btn btn-link nav-link" data-toggle="modal" data-target="#exampleModal">Monthly</button>
+                            </div>
                         </div>
                     </div>
                     @if (!Auth::guest())
@@ -210,9 +186,41 @@
                     @endif
                 </nav>
             </div>
-            
-            @yield('content')
 
+            @yield('content')
+            <!-- modal  -->
+            <div class="modal fade" id="reconciliation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modal-bg">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Select Vendor</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ Route('vendor.report') }}" method="POST">
+                                @csrf
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group ">
+                                        <label class="label-color" for="name">Select Vendor</label>
+                                        <select class="ml-1 btn btn-secondary btn-sm dropdown-toggle" name="party_name">
+                                            @foreach($vendors as $vendor)
+                                            <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="ml-2 btn view-btn-color font-weight-bold">Generate Report</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of modal div -->
 
         </div>
         <!-- Optional JavaScript -->
