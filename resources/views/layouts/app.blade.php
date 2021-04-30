@@ -38,7 +38,7 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 <!-- {{ __('Inventory Management') }} -->
 
-                <img class="logo-image" src="logo1.png" class="img-fluid" height="50" alt="">
+                <img class="logo-image" src="logo1.png" height="50" alt="">
                 {{ __('Inventory Management') }}
             </a>
             <div>
@@ -168,13 +168,13 @@
                            
                             <div class="sb-sidenav-menu-heading ">Reports</div>
                             <div class="d-inline-flex ml-3">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                <button class="btn nav-link btn-link " data-toggle="modal" data-target="#reconciliation">Reconciliation</button>
+                                <div class="sb-nav-link-icon mt-3"><i class="fas fa-chart-area"></i></div>
+                                <button class="btn nav-link btn-link mt-1" data-toggle="modal" data-target="#reconciliation">Reconciliation</button>
                             </div>
 
                             <div class="d-inline-flex ml-3">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                <button class="btn btn-link nav-link" data-toggle="modal" data-target="#exampleModal">Monthly</button>
+                                <div class="sb-nav-link-icon mt-3"><i class="fas fa-table"></i></div>
+                                <button class="btn btn-link nav-link mt-1" data-toggle="modal" data-target="#exampleModal">Monthly</button>
                             </div>
                         </div>
                     </div>
