@@ -3,15 +3,15 @@
 
 <div id="layoutSidenav_content">
   <div>
-    <div class="mt-5">
-      <ol class="breadcrumb ml-5 mr-5">
-        <li class="breadcrumb-item active font-weight-bold" style="color: #c6c6c6;"><span id="breadcrumb-item">Yarn</span></li>
+    <div class="mt-2">
+      <ol class="breadcrumb ml-2 mr-2">
+        <li class="breadcrumb-item active font-weight-bold" style="color: #c6c6c6;"><span id="breadcrumb-item">Material Received Note</span></li>
       </ol>
     </div>
     <div class="bg-color-content" id="menu">
       <div class="menu bg-color-content" id="menu">
         <div class="card bg-color-content">
-          <div class="card-header shadow p-2 mb-4 rounded">
+          <div class="card-header shadow p-2 mb-2 rounded">
             <div class="ml-5 mr-5 d-flex justify-content-center">
               <div class="col-6 text-center text-dark btn active m-1 submit-button-color" id="myyarn" onclick="headingYarn()">
                 Yarn
@@ -23,14 +23,14 @@
           </div>
           <!-- yarn form -->
           <div class="card-body shadow p-2 mb-4 rounded active bg-color-content" id="yarn">
-            <form method="POST" action="{{ Route('mrnyarn.store') }}">
+            <form method="POST" action="{{ Route('mrnyarn.store') }}" class="">
               @csrf
-              <div class="row ml-4 mr-4">
-                <div class="form-group col-4">
+              <div class="row ml-4 mr-4" style="border: 1px solid #6EDAC5 ;">
+                <div class="form-group col-3">
                   <label for="exampleInputEmail1" class="label-color">MRN Number</label>
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name="mrn_no">
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label class="mt-3" for="name" class="label-color label-color-change">Select Vendor </label>
                   <select name="vendor_name" class="btn btn-secondary btn-sm dropdown-toggle ml-1" style="width: 50%;">
                     @foreach($vendors as $vendor)
@@ -38,7 +38,7 @@
                     @endforeach
                   </select>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label class="mt-3" for="name" class="label-color">Select Material </label>
                   <select name="item_name" class='form-select btn btn-sm btn-secondary dropdown-toggle ml-1' style="width: 50%;">
                     @foreach($materials as $material)
@@ -46,48 +46,48 @@
                     @endforeach
                   </select>
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Actually Received From</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="actual_recieved_from">
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Shade</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="shade">
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Invoice Number</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="invoice_no">
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Stock Received</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="recieved_stock">
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Actual Received Weight</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="actual_stock">
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Return</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="return_stock">
                 </div>
-                <div class="form-group col-4">
+                <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Description</label>
                   <input type="text" class="form-control input-bg-color" placeholder="" name="description">
                 </div>
-              </div>
-              <div class='row ml-4 mr-4 mb-3'>
+              <div class='mt-5 mb-2'>
                 <div class="col-4">
                   <button type="submit" class="btn btn-sm submit-button-color">Submit</button>
                 </div>
+              </div>
               </div>
             </form>
           </div>
 
           <!-- Other than yarn form-->
           <div class="card-body shadow p-2 mb-4 rounded bg-color-content" id="other">
-            <form class="mt-4" method="POST" action="{{ Route('mrnothers.store') }}">
+            <form class="" method="POST" action="{{ Route('mrnothers.store') }}">
               @csrf
-              <div class="row ml-4 mr-4">
+              <div class="row ml-4 mr-4" style="border: 1px solid #F2EA9D ;">
                 <div class="form-group col-4">
                   <label class="label-color" for="exampleInputEmail1">MRN Number</label>
                   <input type="number" class="form-control input-bg-color" id="mrn_number" placeholder="" name='mrn_no'>
@@ -113,7 +113,7 @@
                   <input type="number" class="form-control input-bg-color" placeholder="" name='quantity'>
                 </div>
                 <div class="col-4 mb-3">
-                  <button type="submit" class="btn btn-sm submit-button-color">Submit</button>
+                  <button type="submit" class="btn btn-sm view-btn-color">Submit</button>
                 </div>
               </div>
             </form>

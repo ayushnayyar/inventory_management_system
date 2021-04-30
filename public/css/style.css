@@ -10355,31 +10355,12 @@ h1,h4 {
   margin-top: 8%;
 }
 
-/* select tag  */
-.select-input{
-  color: rgba(255, 255, 255, 0.5);
-  background-color: #1b1f22 !important;
-  width: 50px !important;
-}
-.select-input-option{
-  width: 50px !important;
-}
-.select-input-option:hover {
-  background-color: #488f8f !important; 
-}
-/* .logo-image{
-  width: 46px;
-  height: 46px;
-  overflow: hidden;
-  margin-top: -6px;
-} */
-
-#sidebarToggle{
-    margin: 60px;
-}
 /* modal */
+
 .modal-bg{
   background-color: #1b1f22 !important;
+  border-radius: 10px;
+
 }
 .modal-title{
   color: white;
