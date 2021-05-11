@@ -23,6 +23,9 @@
     <!-- Bootsrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- momentsjs -->
+    <script type="text/JavaScript" src=" https://MomentJS.com/downloads/moment.js"></script>
+
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -30,7 +33,9 @@
 
 <body class="sb-nav-fixed">
     <?php
+
     use Illuminate\Support\Facades\DB;
+
     $vendors = DB::table('vendors')->select('*')->get();
     ?>
     <div id="app">
@@ -42,7 +47,7 @@
                 {{ __('Inventory Management') }}
             </a>
             <div>
-            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+                <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             </div>
             <!-- Navbar Search-->
             <!-- <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -123,7 +128,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ Route('vendor') }}">View Vendors</a>
-                                    <!-- <a class="nav-link" href="{{ Route('addvendor') }}">Add vendor</a> -->
+
                                 </nav>
                             </div>
                             <!-- Materials -->
@@ -135,7 +140,7 @@
                             <div class="collapse" id="collapseMaterials" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="{{ (\Request::route()->getName() == 'material') ? 'active text-primary' : '' }} nav-link" href="{{ route('material') }}">{{ __('Materials') }}</a>
-                                    <!-- <a class="nav-link" href="{{ Route('addmaterial') }}">Add Material</a> -->
+
                                 </nav>
                             </div>
                             <!-- Orders -->
@@ -147,7 +152,7 @@
                             <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="{{ (\Request::route()->getName() == 'order') ? 'active text-primary' : '' }} nav-link" href="{{ route('order') }}">{{ __('Orders') }}</a>
-                                    <!-- <a class="nav-link" href="{{ Route('addorder') }}">Add Order</a> -->
+
                                 </nav>
                             </div>
                             <!-- Transactions -->
@@ -165,7 +170,7 @@
 
                             @else
                             @endif
-                           
+
                             <div class="sb-sidenav-menu-heading ">Reports</div>
                             <div class="d-inline-flex ml-3">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

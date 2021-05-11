@@ -42,12 +42,14 @@ class VendorController extends Controller
     public function report(Request $request){
         $party_name = $request->party_name;
         $orders = DB::table('orders')->select('*')->where('party_name', $party_name)->get();
-        $totalYarnReturned = 0;
-        $totalInStock = 0;
-        foreach($orders as $order){
-            $totalYarnReturned = $totalYarnReturned + $order->dispatched;
-            $totalInStock = $totalInStock + $order->current_stock;
-        }
-        return view('report', compact('orders','totalYarnReturned','totalInStock'));
+        $yarnReturned = DB::table('orders')->where('party_name',$party_name)->sum('return_stock');
+        $currentStock = DB::table('orders')->where('party_name',$party_name)->sum('current_stock');
+        $short = DB::table('orders')->where('party_name',$party_name)->sum('short_stock');
+        $recieved = DB::table('orders')->where('party_name',$party_name)->sum('recieved_stock');
+        $dispatched = DB::table('orders')->where('party_name',$party_name)->sum('dispatched');
+        $beamFloor = DB::table('orders')->where('party_name',$party_name)->sum('beam_floor');
+        $beamMachine = DB::table('orders')->where('party_name',$party_name)->sum('beam_machine');
+        $fabricStock = DB::table('orders')->where('party_name',$party_name)->sum('fabric_stock');
+        return view('report', compact('orders','yarnReturned','currentStock','short', 'recieved','dispatched','beamFloor', 'beamMachine','fabricStock'));
     }
 }

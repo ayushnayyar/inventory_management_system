@@ -19,11 +19,6 @@ class OrderController extends Controller
         return view('order.order', compact('orders'));
     }
 
-    public function addOrder(){
-        $vendors = Vendor::all();
-        $materials = Material::all();
-        return view('order.newOrder', compact('vendors','materials'));
-    }
     public function store(Request $request){
         $mrn = new Mrn();
         $mrn->mrn_no = $request->mrn_no;
