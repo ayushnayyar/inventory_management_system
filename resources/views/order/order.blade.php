@@ -7,8 +7,7 @@
       </div>
 
       <div class="add_vendor_button">
-        <a class="btn submit-button-color font-weight-bold" href="{{ Route('mrn.yarn') }}">Add Order</a>
-        <a class="ml-2 btn view-btn-color font-weight-bold" href="">Generate Report</a>
+        <a class="btn submit-button-color font-weight-bold mr-4" href="{{ Route('mrn') }}">Add Order</a>
       </div>
 
     </div>

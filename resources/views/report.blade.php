@@ -50,33 +50,58 @@ function exportTableToCSV(filename) {
   <div class="m-2">
       <table id="report" class='table table-dark table-hover table-responsive-sm'>
         <tr>
+        <th>SR</th>
           <th>Invoice No</th>
-          <th>Invoice Date</th>
-          <th>Vendor Name</th>
+         
           <th>Item returned</th>
           <th>Recieved Stock</th>
-          <th>Short</th>
-          <th>Current Stock</th>
           <th>Dispatched</th>
+          <th>Invoice Date</th>
+          <th style="display: none;">Invoice Time</th>
         </tr>
+        <?php $count = 1 ?>
         @foreach ($orders as $order)
         <tr class='table-active'>
+          <td>{{ $count }}</td>
           <td>{{ $order->invoice_no }}</td>
-          <td>{{ $order->created_at }}</td>
-          <td>{{$order->party_name}}</td>
+          
           <td>{{ $order->item_name }}</td>
           <td>{{ $order->recieved_stock }}</td>
-          <td>{{ $order->short_stock }}</td>
-          <td>{{$order->current_stock}}</td>
           <td>{{$order->dispatched}}</td>
+          <?php $count = $count+1  ?>
+          <td class="timestamp">{{ $order->created_at }}</td>
         @endforeach
         </tr>
-        <tr>
-          <td>Total Yarn In Stock:{{ $totalInStock }}</td>
-          <td>Total Yarn Returned:{{ $totalYarnReturned }}</td>
-        </tr>
       </table>
-      <button onclick="exportTableToCSV('orders.csv')" class="btn btn-success">Export</button>
+      <br/>
+      <div class="m-2">
+        <table id="report" class='table table-dark table-hover table-responsive-sm'>
+        <h4>Total</h4>
+        <tr>
+          <th>Recieved</th>
+          <th>Dispatched</th>
+          <th>Returned</th>
+          <th>In Stock</th>
+          <th>short</th>
+          <th>Beam Machine</th>
+          <th>Beam Floor</th>
+          <th>Fabric Stock</th>
+          <th>Balance</th>
+        </tr>
+        <tr class='table-active'>
+          <td>{{ $recieved }}</td>
+          <td>{{ $dispatched }}</td>
+          <td>{{ $yarnReturned }}</td>
+          <td>{{ $currentStock }}</td>
+          <td> {{ $short }}</td>
+          <td>{{ $beamMachine }}</td>
+          <td>{{ $beamFloor }}</td>
+          <td>{{ $fabricStock }}</td>
+          <td> {{ $recieved-($yarnReturned+$currentStock+$short+$dispatched+$beamFloor+$beamMachine+$fabricStock)  }} </td>
+        </tr>
+        </table>
+      </div>
+      <button onclick="exportTableToCSV('orders.csv')" class="btn btn-primary">Export</button>
     </div>
 </div>
 
