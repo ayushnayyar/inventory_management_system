@@ -23,6 +23,7 @@ Route::middleware('auth')->group( function() {
     
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//vendors
 Route::get('/vendor',  [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
 
 Route::post('/vendor/store', [App\Http\Controllers\VendorController::class, 'store'])->name('vendor.store');
@@ -33,8 +34,7 @@ Route::post('/vendor/update/{vendor_id}', [App\Http\Controllers\VendorController
 
 Route::get('/vendor/delete/{vendor_id}', [App\Http\Controllers\VendorController::class, 'delete'])->name('vendor.delete');
 
-Route::post('/report', [App\Http\Controllers\VendorController::class, 'report'])->name('vendor.report');
-
+//materials
 Route::get('/material', [App\Http\Controllers\MaterialController::class, 'index'])->name('material');
 
 Route::post('/material/store', [App\Http\Controllers\MaterialController::class, 'store'])->name('material.store');
@@ -45,20 +45,20 @@ Route::post('/material/update/{material_id}', [App\Http\Controllers\MaterialCont
 
 Route::get('/material/delete/{material_id}', [App\Http\Controllers\MaterialController::class, 'delete'])->name('material.delete');
 
+//orders
 Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->name('order');
-
-Route::get('/editorder/{order_id}', [App\Http\Controllers\OrderController::class, 'editOrder'])->name('order.edit');
-
-Route::post('/updateorder/{order_id}', [App\Http\Controllers\OrderController::class, 'updateOrder'])->name('order.update');
-
-Route::get('/deleteorder/{order_id}', [App\Http\Controllers\OrderController::class, 'deleteOrder'])->name('order.delete');
 
 Route::post('/order/store', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 
-Route::get('/vieworder/{order_id}', [App\Http\Controllers\OrderController::class, 'viewOrder'])->name('order.view');
+Route::get('/receivedorder/{order_id}', [App\Http\Controllers\ReceivesController::class, 'received'])->name('order.received');
 
-Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction');
+//Route::post('/updateorder/{order_id}', [App\Http\Controllers\OrderController::class, 'updateOrder'])->name('order.update');
 
+Route::get('/deleteorder/{order_id}', [App\Http\Controllers\OrderController::class, 'deleteOrder'])->name('order.delete');
+
+Route::get('/dispatchorder/{order_id}', [App\Http\Controllers\DispatchesController::class, 'dispatched'])->name('order.dispatched');
+
+//mrns
 Route::get('/mrn', [App\Http\Controllers\MrnController::class, 'index'])->name('mrn');
 
 Route::get('/mrnYarn', [App\Http\Controllers\MrnController::class, 'addMrnYarn'])->name('mrn.yarn');

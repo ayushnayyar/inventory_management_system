@@ -37,7 +37,6 @@
           @foreach($materials as $material)
           <tr class='table-active'>
             <td>{{ $material->material_name }}</td>
-            <td>{{ $material->material_type }}</td>
             <td><button class="btn btn-sm update-btn-color" data-toggle="modal" data-target="#exampleModal-{{ $material->id }}">Update</button></td>
             <!-- update material modal -->
             <div class="modal fade" id="exampleModal-{{ $material->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -55,10 +54,6 @@
                       <div class="form-group">
                         <label class='mt-3 label-color' for="name">Item Name</label>
                         <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Name" name="material_name" value="{{ $material->material_name }}">
-                      </div>
-                      <div class="form-group">
-                        <label class='mt-3 label-color' for="name">Item type</label>
-                        <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Type" name="material_type" value="{{ $material->material_type }}">
                       </div>
                       <input type="submit" class="btn submit-button-color mt-3" name="submit">
                     </form>
@@ -90,10 +85,7 @@
                     <label class='mt-3 label-color' for="name">Material Name</label>
                     <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Name" name="material_name">
                 </div>
-                <div class="form-group">
-                    <label class='mt-3 label-color' for="name">Material Type</label>
-                    <input type="text" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Enter Material Type" name="material_type">
-                </div>
+                
             </div>
             <div class="modal-footer">
                 <div class='form-group'>

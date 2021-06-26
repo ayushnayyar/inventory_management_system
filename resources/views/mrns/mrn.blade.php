@@ -55,12 +55,20 @@
                   <input type="text" class="form-control input-bg-color" placeholder="" name="shade">
                 </div>
                 <div class="form-group col-3">
+                  <label for="exampleInputPassword1" class="label-color">Type / Count</label>
+                  <input type="string" class="form-control input-bg-color" placeholder="" name="type">
+                </div>
+                <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Invoice Number</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="invoice_no">
                 </div>
                 <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Stock Received</label>
                   <input type="number" class="form-control input-bg-color" placeholder="" name="recieved_stock">
+                </div>
+                <div class="form-group col-3">
+                  <label for="exampleInputPassword1" class="label-color">No Of Boxes</label>
+                  <input type="number" class="form-control input-bg-color" placeholder="" name="no_of_boxes">
                 </div>
                 <div class="form-group col-3">
                   <label for="exampleInputPassword1" class="label-color">Actual Received Weight</label>
@@ -164,7 +172,6 @@
             <td>{{ $mrn->invoice_no }}</td>
             <td>{{ $mrn->quantity }}</td>
             <td>{{ $mrn->description }}</td>
-            <td><a href="{{ Route('order.edit',[$mrn->id]) }}" class="btn btn-sm update-btn-color">Update</a></td>
             <td><a href="{{ Route('order.delete',[$mrn->id]) }}" class="btn btn-sm delete-btn-color">Delete</a></td>
           </tr>
           @endforeach

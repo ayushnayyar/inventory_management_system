@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaterialsTable extends Migration
+class CreateDispatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('materials', function (Blueprint $table) {
+        Schema::create('dispatches', function (Blueprint $table) {
             $table->id();
-            $table->string('material_name');
+            $table->integer('order_id')->unsigned();
+            $table->string('quality');
+            $table->string('design');
+            $table->integer('length');
+            $table->integer('no_of_bales');
+            $table->integer('dispatched');
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class CreateMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materials');
+        Schema::dropIfExists('dispatches');
     }
 }

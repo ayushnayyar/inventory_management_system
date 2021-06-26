@@ -20,84 +20,70 @@ class OrderController extends Controller
     }
 
     public function store(Request $request){
+        // storing in mrn
         $mrn = new Mrn();
-        $mrn->mrn_no = $request->mrn_no;
-        $mrn->item_name = $request->item_name;
-        $mrn->vendor_name = $request->vendor_name;
-        $mrn->description = $request->description;
-        $mrn->invoice_no = $request->invoice_no;
-        $mrn->quantity = $request->actual_stock;
-        $mrn->save();
+        $mrn_id = $mrn->store($request);
+        
+        //storing in order
         $order = new Order();
-        $order->mrn_id = $mrn->id;
-        $current_stock = $request->actual_stock - ($request->return_stock);
-        $order->recieved_stock= $request->recieved_stock;
-        $order->actual_stock = $request->actual_stock;
-        $order->return_stock = $request->return_stock;
-        $order->current_stock = $current_stock;
-        $order->invoice_no = $request->invoice_no;
-        $order->short_stock= $request->recieved_stock - $request->actual_stock;
-        $order->cone_stock = 0;
-        $order->beam_machine = 0;
-        $order->beam_floor = 0;
-        $order->weft = 0;
-        $order->dispatched = 0;
-        $order->fabric_stock = 0;
+
+        //to get item id
         $getItem = DB::table('materials')->where('material_name','=',$request->item_name)->get();
         foreach ($getItem as $item){
                 $itemId= $item->id;
         }
+
+        //to get vendor id
         $getVendor= DB::table('vendors')->where('party_name','=',$request->vendor_name)->get();
         foreach ($getVendor as $vendor){
                 $partyId =  $vendor->id;
         }
-        $order->shade =$request->shade;
-        $order->item_name = $request->item_name;
-        $order->party_name = $request->vendor_name;
+        $order->mrn_id = $mrn_id;
         $order->party_id = $partyId;
         $order->item_id = $itemId;
+        $order->invoice_no = $request->invoice_no;
+        $order->party_name = $request->vendor_name;
         $order->actual_recieved_from =$request->actual_recieved_from; 
-        $order->save();
-        $transaction = new Transaction();
-        $transaction->store_transaction();
-        return redirect()->route('order');
-    }
-
-    public function editOrder($order_id){
-        $order = Order::find($order_id);
-        return view('order.updateOrder', compact('order'));
-    }
-
-    public function updateOrder($order_id, Request $request){
-        $order = Order::find($order_id);
-        $order->cone_stock = $request->cone_stock;
-        $order->beam_floor = $request->beam_floor;
-        $order->beam_machine = $request->beam_machine;
-        $order->weft = $request->weft;
-        $order->fabric_stock = $request->fabric_stock;
-        $order->dispatched = $request->dispatched;
-        $current_stock = $order->actual_stock - $order->return;
-        $order->current_stock = $current_stock; 
-        $order->save();
-        $transaction = Transaction::update_transaction($order,$order_id);
-        $ts = DB::table('transactions')->where('order_id','=',$order_id)->get();
-        $dispatched = 0;
-        foreach($ts as $t){
-            $dispatched = $dispatched + $t->dispatched;
-        }
-        $order->current_stock = $order->actual_stock-$order->return_stock- $dispatched;
-        $order->dispatched = $dispatched;
+        $order->item_name = $request->item_name;
+        $order->shade =$request->shade;
+        $order->type = $request->type;
+        $order->recieved_stock= $request->recieved_stock;
+        $order->actual_stock = $request->actual_stock;
+        $order->no_of_boxes = $request->no_of_boxes;
+        $order->short_stock= $request->recieved_stock - $request->actual_stock;
+        $order->return_stock = $request->return_stock;
+        $order->current_stock = $request->actual_stock - ($request->return_stock);
+        $order->cone_stock = 0;
+        $order->beam_machine = 0;
+        $order->beam_floor = 0;
+        $order->weft = 0;
+        $order->fabric_stock = 0;
+        $order->dispatched = 0;
+        $order->length = 0;
+        $order->no_of_bales = 0;
         $order->save();
         return redirect()->route('order');
     }
 
-    public function viewOrder($order_id){
-       $transactions = DB::table('transactions')->where('order_id', $order_id)->get();
-       foreach ($transactions as $transaction) {
-           $short_stock = $transaction->short_stock;
-       }
-       return view('order.viewOrder', compact('transactions', 'short_stock'));
+
+    public function addReceived($order_id, Request $request){
+        $order = Order::findorfail($order_id);
     }
+
+    //public function updateOrder($order_id, Request $request){
+      //  $order = Order::find($order_id);
+      //  $order->cone_stock = $request->cone_stock;
+      //  $order->beam_floor = $request->beam_floor;
+      // $order->beam_machine = $request->beam_machine;
+      //  $order->weft = $request->weft;
+      //  $order->fabric_stock = $request->fabric_stock;
+      //  $order->dispatched = $request->dispatched;
+      //  $current_stock = $order->actual_stock - $order->return;
+      //  $order->current_stock = $current_stock; 
+      //  $order->save();
+      // return redirect()->route('order');
+    //}
+
 
     public function deleteOrder($order_id){
         $order = Order::find($order_id);

@@ -22,9 +22,12 @@ class CreateOrdersTable extends Migration
             $table->string('party_name');
             $table->string('actual_recieved_from');
             $table->string('item_name');
+            $table->string('type');
             $table->string('shade');
             $table->integer('recieved_stock');
             $table->integer('actual_stock');
+            $table->integer('no_of_boxes');
+            $table->integer('short_stock');
             $table->integer('return_stock');
             $table->integer('current_stock');
             $table->integer('cone_stock');
@@ -33,7 +36,8 @@ class CreateOrdersTable extends Migration
             $table->integer('weft');
             $table->integer('fabric_stock');
             $table->integer('dispatched');
-            $table->integer('short_stock');
+            $table->integer('length');
+            $table->integer('no_of_bales');
             $table->timestamps();
         });
     }

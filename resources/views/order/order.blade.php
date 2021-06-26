@@ -46,8 +46,8 @@
             <td>{{ $order->recieved_stock }}</td>
             <td>{{ $order->current_stock }}</td>
             <td>{{ $order->dispatched }}</td>
-            <td><a href="{{ Route('order.edit',[$order->id]) }}" class="btn btn-sm update-btn-color">Update</a></td>
-            <td><a href="{{ Route('order.view',[$order->id]) }}" class="btn btn-sm view-btn-color">View</a></td>
+            <td><a href="{{ Route('order.received',[$order->id]) }}" class="btn btn-sm update-btn-color">Received</a></td>
+            <td><a href="{{ Route('order.dispatched',[$order->id]) }}" class="btn btn-sm view-btn-color">Dispatched</a></td>
             <td><a href="{{ Route('order.delete',[$order->id]) }}" class="btn btn-sm delete-btn-color">Delete</a></td>
           </tr>
           @endforeach

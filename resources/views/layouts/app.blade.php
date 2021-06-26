@@ -155,18 +155,6 @@
 
                                 </nav>
                             </div>
-                            <!-- Transactions -->
-                            <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransactions" aria-expanded="false" aria-controls="collapseTransactions">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Transactions
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseTransactions" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="{{ (\Request::route()->getName() == 'transaction') ? 'active text-primary' : '' }} nav-link" href="{{ route('transaction') }}">{{ __('Transactions') }}</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Add Transaction</a>
-                                </nav>
-                            </div> -->
 
                             @else
                             @endif
@@ -204,7 +192,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ Route('vendor.report') }}" method="POST">
+                            <form action="" method="POST">
                                 @csrf
                                 <div class="d-flex justify-content-between">
                                     <div class="form-group ">

@@ -10,7 +10,6 @@ class MaterialController extends Controller
     public function store(Request $request){
         $material = new Material();
         $material->material_name = $request->material_name;
-        $material->material_type = $request->material_type;
         $material->save();
         return redirect()->route('material');
     }
@@ -26,7 +25,6 @@ class MaterialController extends Controller
     public function update(Request $request, $material_id){
         $material = Material::find($material_id);
         $material->material_name = $request->material_name;
-        $material->material_type = $request->material_type;
         $material->save();
         return redirect()->route('material');
     }

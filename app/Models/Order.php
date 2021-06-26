@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-
+use App\Models\Mrn;
 
 class Order extends Model
 {
@@ -16,5 +15,13 @@ class Order extends Model
     }
     public function material(){
         return $this->hasOne('App\Models\Material', 'item_id' , 'id');
+    }
+
+    public function mrn(){
+        return $this->hasOne(Mrn::class, 'mrn_id', 'id');
+    }
+
+    public function receives(){
+        return $this->hasMany('App\Models\Receive', 'order_id', 'id');
     }
 }
