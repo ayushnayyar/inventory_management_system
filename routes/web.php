@@ -52,11 +52,15 @@ Route::post('/order/store', [App\Http\Controllers\OrderController::class, 'store
 
 Route::get('/receivedorder/{order_id}', [App\Http\Controllers\ReceivesController::class, 'received'])->name('order.received');
 
+Route::post('/receivedorder/{order_id}', [App\Http\Controllers\OrderController::class, 'addReceived'])->name('order.addreceived');
+
 //Route::post('/updateorder/{order_id}', [App\Http\Controllers\OrderController::class, 'updateOrder'])->name('order.update');
 
-Route::get('/deleteorder/{order_id}', [App\Http\Controllers\OrderController::class, 'deleteOrder'])->name('order.delete');
-
 Route::get('/dispatchorder/{order_id}', [App\Http\Controllers\DispatchesController::class, 'dispatched'])->name('order.dispatched');
+
+Route::post('/dispatchorder/{order_id}', [App\Http\Controllers\OrderController::class, 'addDispatched'])->name('order.addDispatched');
+
+Route::get('/deleteorder/{order_id}', [App\Http\Controllers\OrderController::class, 'deleteOrder'])->name('order.delete');
 
 //mrns
 Route::get('/mrn', [App\Http\Controllers\MrnController::class, 'index'])->name('mrn');
@@ -70,4 +74,8 @@ Route::get('/mrnOthers', function () {
 Route::post('/mrnOthers/store', [App\Http\Controllers\MrnController::class, 'store'])->name('mrnothers.store');
 
 Route::post('/mrnYarn/store', [App\Http\Controllers\OrderController::class, 'store'])->name('mrnyarn.store');
+
+//reports
+
+Route::post('/inwardReport', [App\Http\Controllers\ReceivesController::class, 'report'])->name('report.inward');
 });

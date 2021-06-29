@@ -192,7 +192,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="POST">
+                            <form action="{{ Route('report.inward') }}" method="POST">
                                 @csrf
                                 <div class="d-flex justify-content-between">
                                     <div class="form-group ">

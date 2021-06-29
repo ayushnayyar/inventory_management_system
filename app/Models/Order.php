@@ -22,6 +22,10 @@ class Order extends Model
     }
 
     public function receives(){
-        return $this->hasMany('App\Models\Receive', 'order_id', 'id');
+        return $this->hasMany(Receive::class, 'order_id', 'id');
+    }
+
+    public function dispatches(){
+        return $this->hasMany(Dispatch::class, 'order_id', 'id');
     }
 }
