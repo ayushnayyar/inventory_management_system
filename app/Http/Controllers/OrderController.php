@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Daily;
 use App\Models\Dispatch;
 use App\Models\Order;;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ use App\Models\Receive;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::all();
+        $orders = DB::table('orders')->paginate(5);
         return view('order.order', compact('orders'));
     }
 
@@ -51,7 +52,7 @@ class OrderController extends Controller
         $order->short_stock= $request->recieved_stock - $request->actual_stock;
         $order->return_stock = $request->return_stock;
         $order->current_stock = $request->actual_stock - ($request->return_stock);
-        $order->cone_stock = 0;
+        $order->cone_stock = $order->current_stock;
         $order->beam_machine = 0;
         $order->beam_floor = 0;
         $order->weft = 0;
@@ -61,6 +62,7 @@ class OrderController extends Controller
         $order->no_of_bales = 0;
         $order->save();
         $receive = Receive::store($order,$request);
+        $daily = Daily::store($order);
         return redirect()->route('order');
     }
 
@@ -73,6 +75,7 @@ class OrderController extends Controller
         $order->short_stock= $order->recieved_stock - $order->actual_stock;
         $order->return_stock = $order->return_stock + $request->return_stock;
         $order->current_stock = $order->actual_stock - ($order->return_stock);
+        $order->cone_stock = $order->cone_stock + $request->actual_stock - ($request->return_stock);
         $order->save();
         $receive = Receive::store($order,$request);
         return redirect()->route('order');
@@ -85,23 +88,23 @@ class OrderController extends Controller
         $order->dispatched = $order->dispatched + $request->dispatched;
         $order->current_stock = $order->current_stock - ($request->dispatched);
         $order->save();
-        $dispatch = Dispatch::store($order->id,$request);
+        $dispatch = Dispatch::store($order,$request);
         return redirect()->route('order');
     }
 
-    //public function updateOrder($order_id, Request $request){
-      //  $order = Order::find($order_id);
-      //  $order->cone_stock = $request->cone_stock;
-      //  $order->beam_floor = $request->beam_floor;
-      // $order->beam_machine = $request->beam_machine;
-      //  $order->weft = $request->weft;
-      //  $order->fabric_stock = $request->fabric_stock;
-      //  $order->dispatched = $request->dispatched;
-      //  $current_stock = $order->actual_stock - $order->return;
-      //  $order->current_stock = $current_stock; 
-      //  $order->save();
-      // return redirect()->route('order');
-    //}
+    public function dailyUpdate($order_id, Request $request){
+       $order = Order::find($order_id);
+       $opening_stock = $order->cone_stock;
+       $order->beam_floor = $order->beam_floor + $request->beam_floor;
+       $order->beam_machine = $order->beam_machine +  $request->beam_machine;
+       $order->weft = $order->weft + $request->weft;
+       $order->fabric_stock = $order->fabric_stock + $request->fabric_stock; 
+       $rec_used = $order->beam_machine + $order->beam_floor + $order->weft + $order->fabric_stock;
+       $order->cone_stock = $order->current_stock - $rec_used - $order->dispatched;
+       $order->save();
+       $daily = Daily::dailiesUpdate($order , $request, $opening_stock);
+      return redirect()->route('order');
+    }
 
 
     public function deleteOrder($order_id){
@@ -115,5 +118,26 @@ class OrderController extends Controller
         $mrn->delete();
         $order->delete();
         return redirect()->route('order'); 
+    }
+
+    public function report(Request $request){
+        $receives = DB::table('receives')->select(
+        DB::raw("SUM(recieved_stock) as received_stock"),
+        DB::raw("SUM(actual_stock) as actual_stock")
+        )->where('party_name','=', $request->party_name)->where('created_at','<=',date($request->date))->get();
+
+
+        $dispatched = DB::table('dispatches')->select(
+            DB::raw("SUM(dispatched) as dispatched"),
+            )->where('party_name','=', $request->party_name)->where('created_at','<=',date($request->date))->get();
+
+
+        $dailies = DB::table('dailies')->select(
+            DB::raw("SUM(beam_floor) as beam_floor"),
+            DB::raw("SUM(beam_machine) as beam_machine"),
+            DB::raw("SUM(fabric_stock) as fabric_stock"),
+            )->where('party_name','=', $request->party_name)->where('created_at','<=',date($request->date))->get();
+        
+        return view('reports.reconliation', compact('dailies','dispatched','receives'));
     }
 }

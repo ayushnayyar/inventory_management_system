@@ -48,10 +48,15 @@
             <td>{{ $order->dispatched }}</td>
             <td><a href="{{ Route('order.received',[$order->id]) }}" class="btn btn-sm update-btn-color">Received</a></td>
             <td><a href="{{ Route('order.dispatched',[$order->id]) }}" class="btn btn-sm view-btn-color">Dispatched</a></td>
+            <td><a href="{{ Route('order.daily', [$order->id]) }}" class="btn btn-sm update-btn-color">Update</a></td>
             <td><a href="{{ Route('order.delete',[$order->id]) }}" class="btn btn-sm delete-btn-color">Delete</a></td>
           </tr>
           @endforeach
         </table>
+        <div class="">
+        {{ $orders->links("pagination::bootstrap-4") }}
+        </div>
+        
       </div>
     </div>
   </div>

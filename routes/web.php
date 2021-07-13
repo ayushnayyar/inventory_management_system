@@ -54,7 +54,9 @@ Route::get('/receivedorder/{order_id}', [App\Http\Controllers\ReceivesController
 
 Route::post('/receivedorder/{order_id}', [App\Http\Controllers\OrderController::class, 'addReceived'])->name('order.addreceived');
 
-//Route::post('/updateorder/{order_id}', [App\Http\Controllers\OrderController::class, 'updateOrder'])->name('order.update');
+Route::get('/dailyUpdate/{order_id}', [App\Http\Controllers\DailyController::class, 'index'])->name('order.daily');
+
+Route::post('/dailyUpdate/{order_id}', [App\Http\Controllers\OrderController::class, 'dailyUpdate'])->name('order.updateDaily');
 
 Route::get('/dispatchorder/{order_id}', [App\Http\Controllers\DispatchesController::class, 'dispatched'])->name('order.dispatched');
 
@@ -78,4 +80,8 @@ Route::post('/mrnYarn/store', [App\Http\Controllers\OrderController::class, 'sto
 //reports
 
 Route::post('/inwardReport', [App\Http\Controllers\ReceivesController::class, 'report'])->name('report.inward');
+
+Route::post('/dispatchReport', [App\Http\Controllers\DispatchesController::class, 'report'])->name('report.dispatched');
+
+Route::post('/reconciliationReport' , [App\Http\Controllers\OrderController::class, 'report'])->name('report.reconciliation');
 });

@@ -28,4 +28,7 @@ class Order extends Model
     public function dispatches(){
         return $this->hasMany(Dispatch::class, 'order_id', 'id');
     }
+    public function dailies(){
+        return $this->hasMany(Daily::class, 'order_id', 'id');
+    }
 }

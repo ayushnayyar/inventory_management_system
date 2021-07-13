@@ -13,9 +13,10 @@ class Dispatch extends Model
         return $this->belongsTo(Order::class, 'order_id');
     }
 
-    public static function store($order_id, $request){
+    public static function store($order, $request){
         $dispatch = new Dispatch();
-        $dispatch->order_id = $order_id;
+        $dispatch->order_id = $order->id;
+        $dispatch->party_name = $order->party_name;
         $dispatch->quality = $request ->quality;
         $dispatch->design = $request->design;
         $dispatch->length = $request->length;

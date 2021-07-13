@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDispatchesTable extends Migration
+class CreateDailiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateDispatchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dispatches', function (Blueprint $table) {
+        Schema::create('dailies', function (Blueprint $table) {
             $table->id();
             $table->integer('order_id')->unsigned();
             $table->string('party_name');
-            $table->string('quality');
-            $table->string('design');
-            $table->integer('length');
-            $table->integer('no_of_bales');
-            $table->integer('dispatched');
+            $table->integer('beam_machine');
+            $table->integer('beam_floor');
+            $table->integer('weft');
+            $table->integer('fabric_stock');
+            $table->integer('cone_stock');
+            $table->integer('opening_stock');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateDispatchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dispatches');
+        Schema::dropIfExists('dailies');
     }
 }
