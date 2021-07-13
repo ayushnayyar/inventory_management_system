@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MaterialController extends Controller
 {
@@ -14,7 +15,7 @@ class MaterialController extends Controller
         return redirect()->route('material');
     }
     public function index(){
-        $materials = Material::all();
+        $materials = DB::table('materials')->paginate(5);
         return view('material.material', compact('materials'));
     }
     public function edit($material_id){

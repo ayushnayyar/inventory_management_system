@@ -17,7 +17,7 @@ class VendorController extends Controller
         return redirect()->route('vendor');
     }
     public function index(){
-        $vendors = Vendor::all();
+        $vendors = DB::table('vendors')->paginate(5);
         return view('vendor.vendor', compact('vendors'));
     }
     public function edit($vendor_id){

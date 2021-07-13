@@ -162,12 +162,17 @@
                             <div class="sb-sidenav-menu-heading ">Reports</div>
                             <div class="d-inline-flex ml-3">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                <button class="btn nav-link btn-link " data-toggle="modal" data-target="#reconciliation">Reconciliation</button>
+                                <button class="btn nav-link btn-link " data-toggle="modal" data-target="#inward">Inward Report</button>
                             </div>
 
                             <div class="d-inline-flex ml-3">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                <button class="btn btn-link nav-link" data-toggle="modal" data-target="#exampleModal">Monthly</button>
+                                <button class="btn btn-link nav-link" data-toggle="modal" data-target="#dispatched">Dispatch Report</button>
+                            </div>
+
+                            <div class="d-inline-flex ml-3">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                <button class="btn btn-link nav-link" data-toggle="modal" data-target="#reconciliaiton">Reconciliation Report</button>
                             </div>
                         </div>
                     </div>
@@ -181,8 +186,8 @@
             </div>
 
             @yield('content')
-            <!-- modal  -->
-            <div class="modal fade" id="reconciliation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- modal inward -->
+            <div class="modal fade" id="inward" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content modal-bg">
                         <div class="modal-header">
@@ -202,6 +207,79 @@
                                             <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="ml-2 btn view-btn-color font-weight-bold">Generate Report</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of modal div -->
+
+            <!-- dispatch modal -->
+            <div class="modal fade" id="dispatched" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modal-bg">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Select Vendor</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ Route('report.dispatched') }}" method="POST">
+                                @csrf
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group ">
+                                        <label class="label-color" for="name">Select Vendor</label>
+                                        <select class="ml-1 btn btn-secondary btn-sm dropdown-toggle" name="party_name">
+                                            @foreach($vendors as $vendor)
+                                            <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="ml-2 btn view-btn-color font-weight-bold">Generate Report</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end of modal div -->
+
+            <!-- reconciliation -->
+            <div class="modal fade" id="reconciliaiton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modal-bg">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Select Vendor</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ Route('report.reconciliation') }}" method="POST">
+                                @csrf
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group ">
+                                        <label class="label-color" for="name">Select Vendor</label>
+                                        <select class="ml-1 btn btn-secondary btn-sm dropdown-toggle" name="party_name">
+                                            @foreach($vendors as $vendor)
+                                            <option value="{{ $vendor->party_name }}">{{$vendor->party_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="label-color" for="name">Select Date</label>
+                                        <input class="form-control input-bg-color" type="date" name="date">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="ml-2 btn view-btn-color font-weight-bold">Generate Report</button>
