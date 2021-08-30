@@ -38,6 +38,10 @@
                     <label class='mt-3 label-color' for="name">Return Stock</label>
                     <input type="number" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Kg" name="return_stock" value="">
                 </div>
+                <div class="form-group col-4">
+                    <label class='mt-3 label-color' for="name">Mrn No</label>
+                    <input type="number" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Kg" name="mrn_no" value="">
+                </div>
             </div>
             <input type="submit" class="btn submit-button-color mt-3 ml-4" name="submit">
         </form>
@@ -64,6 +68,7 @@
       <div>
         <table id="orders" class='search-table table table-dark table-hover table-responsive-sm'>
           <tr>
+            <th>Date</th>
             <th>Actual received from</th>
             <th>Stock Recieved</th>
             <th>actual stock</th>
@@ -73,6 +78,7 @@
           </tr>
           @foreach($receives as $receive)
           <tr class='table-active'>
+            <td>{{ $receive->created_at  }}</td>
             <td>{{ $receive->actual_recieved_from  }}</td>
             <td>{{ $receive->recieved_stock  }}</td>
             <td>{{ $receive->actual_stock  }}</td>

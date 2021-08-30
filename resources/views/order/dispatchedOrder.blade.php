@@ -54,6 +54,7 @@
       <div>
         <table id="orders" class='search-table table table-dark table-hover table-responsive-sm'>
           <tr>
+            <th>Date</th>
             <th>Quality</th>
             <th>Design</th>
             <th>Length</th>
@@ -62,6 +63,7 @@
           </tr>
           @foreach($dispatched as $dispatch)
           <tr class='table-active'>
+            <td  class="timestamp">{{ $dispatch->created_at  }}</td>
             <td>{{ $dispatch->quality  }}</td>
             <td>{{ $dispatch->design  }}</td>
             <td>{{ $dispatch->length  }}</td>

@@ -37,6 +37,7 @@
             <th>Vendor Name</th>
             <th>Stock Recieved</th>
             <th>Current Stock</th>
+            <th>Cone Stock</th>
             <th>Dispatched</th>
           </tr>
           @foreach($orders as $order)
@@ -45,6 +46,7 @@
             <td>{{ $order->party_name }}</td>
             <td>{{ $order->recieved_stock }}</td>
             <td>{{ $order->current_stock }}</td>
+            <td>{{ $order->cone_stock }}</td>
             <td>{{ $order->dispatched }}</td>
             <td><a href="{{ Route('order.received',[$order->id]) }}" class="btn btn-sm update-btn-color">Received</a></td>
             <td><a href="{{ Route('order.dispatched',[$order->id]) }}" class="btn btn-sm view-btn-color">Dispatched</a></td>

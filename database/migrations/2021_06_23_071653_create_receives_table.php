@@ -16,6 +16,7 @@ class CreateReceivesTable extends Migration
         Schema::create('receives', function (Blueprint $table) {
             $table->id();
             $table->integer('order_id')->unsigned();
+            $table->integer('mrn_no');
             $table->string('party_name');
             $table->string('actual_recieved_from');
             $table->string('type');

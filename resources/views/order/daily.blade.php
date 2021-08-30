@@ -61,7 +61,7 @@
                     </tr>
                     @foreach($dailies as $daily)
                     <tr class='table-active'>
-                        <td class="timestamp">{{ $daily->created_at  }}</td>
+                        <td>{{ $daily->created_at  }}</td>
                         <td>{{ $daily->opening_stock  }}</td>
                         <td>{{ $daily->cone_stock  }}</td>
                         <td>{{ $daily->beam_machine  }}</td>

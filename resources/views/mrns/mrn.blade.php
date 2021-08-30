@@ -159,6 +159,7 @@
       <div>
         <table id="orders" class='search-table table table-dark table-hover table-responsive-sm'>
           <tr>
+            <th>Date</th>
             <th>Item Name</th>
             <th>Vendor Name</th>
             <th>Stock Recieved</th>
@@ -167,6 +168,7 @@
           </tr>
           @foreach($mrns as $mrn)
           <tr class='table-active'>
+            <td class="timestamp">{{ $mrn->created_at }} </td>
             <td>{{ $mrn->item_name }} </td>
             <td>{{ $mrn->vendor_name }}</td>
             <td>{{ $mrn->invoice_no }}</td>

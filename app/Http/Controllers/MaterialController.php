@@ -15,7 +15,7 @@ class MaterialController extends Controller
         return redirect()->route('material');
     }
     public function index(){
-        $materials = DB::table('materials')->paginate(5);
+        $materials = DB::table('materials')->orderBy('created_at', 'desc')->paginate(5);
         return view('material.material', compact('materials'));
     }
     public function edit($material_id){
