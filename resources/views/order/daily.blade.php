@@ -29,7 +29,9 @@
         </form>
         <br />
         
-        <div class="mt-2 mb-2 card bg-dark ml-5 mr-5" style="border: none;">
+        
+        <div class="mt-2 mb-2 card bg-dark ml-5 mr-5 p-1" style="border: none;">
+        <h4 class="heading-color ml-3">Total Dispatched: {{ $order->dispatched }}</h4>
             <div class="d-flex justify-content-between bg-dark">
                 <div>
                     <div class="card-header text-white bg-dark">

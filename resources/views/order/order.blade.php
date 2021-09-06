@@ -11,7 +11,7 @@
       </div>
 
     </div>
-    <div class="mt-3 mb-2 card bg-dark ml-4 mr-4" style="border: none;">
+    <div class="mt-3 mb-2 card bg-dark" style="border: none;">
       <div class="d-flex justify-content-between bg-dark">
         <div>
           <div class="card-header text-white bg-dark">
@@ -33,6 +33,7 @@
       <div class="mb-2 mt-2">
         <table id="orders" class='search-table table table-dark table-hover table-responsive-sm'>
           <tr>
+            <th>Date</th>
             <th>Item Name</th>
             <th>Vendor Name</th>
             <th>Stock Recieved</th>
@@ -42,6 +43,7 @@
           </tr>
           @foreach($orders as $order)
           <tr class='table-active'>
+            <td>{{ $order->created_at }}</td>
             <td>{{ $order->item_name }} </td>
             <td>{{ $order->party_name }}</td>
             <td>{{ $order->recieved_stock }}</td>

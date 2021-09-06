@@ -11,7 +11,7 @@ class DailyController extends Controller
     //
     public function index($order_id){
         $order = Order::findorfail($order_id);
-        $dailies = DB::table('dailies')->select('*')->where('order_id', '=' , $order_id)->paginate(5);
+        $dailies = DB::table('dailies')->select('*')->where('order_id', '=' , $order_id)->paginate(15);
         return view('order.daily', compact('order', 'dailies'));
     }
 

@@ -25,8 +25,8 @@
                     <input type="number" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="no of bales" name="no_of_bales" value="">
                 </div>
                 <div class="form-group col-4">
-                    <label class='mt-3 label-color' for="name">Dispatched Quantity</label>
-                    <input type="number" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Kg" name="dispatched" value="">
+                    <label class='mt-3 label-color' for="name">Dispatched Quantity (fabric stock {{abs($order->fabric_stock - $order->dispatched)}})</label>
+                    <input type="number" class="form-control input-bg-color" id="exampleInputEmail1" placeholder="Kg" name="dispatched" value="" required >
                 </div>
             </div>  
             <input type="submit" class="btn submit-button-color mt-3 ml-4" name="submit">
