@@ -6,6 +6,7 @@
             <tr>
                 <th>SR</th>
                 <th>Received Date</th>
+                <th>MRN</th>
                 <th>Actual Received From</th>
                 <th>Count</th>
                 <th>Shade</th>
@@ -17,7 +18,8 @@
             @foreach ($receives as $receive)
             <tr class='table-active'>
                 <td> {{ $count }} </td>
-                <td class="timestamp">{{ $receive->created_at }}</td>
+                <td>{{ $receive->created_at }}</td>
+                <td>{{ $receive->mrn_no }}</td>
                 <td>{{ $receive->actual_recieved_from }}</td>
                 <td>{{ $receive->type }}</td>
                 <td>{{ $receive->shade }}</td>

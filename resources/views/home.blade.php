@@ -104,35 +104,24 @@
                         <table class="table table-dark table-hover table-responsive-sm" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Date</th>
+                                    <th>MRN No</th>
+                                    <th>Item</th>
+                                    <th>Item</th>
+                                    <th>Invoice No</th>
+                                    <th>Quantity</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                                
-                            </tfoot>
                             <tbody>
                             @foreach($mrns as $mrn)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
+                                    <td>{{ $mrn->created_at }}</td>
+                                    <td>{{ $mrn->mrn_no }}</td>
+                                    <td>{{ $mrn->item_name }}</td>
+                                    <td>{{ $mrn->vendor_name }}</td>
+                                    <td>{{ $mrn->invoice_no }}</td>
+                                    <td>{{ $mrn->quantity }}</td>
+                                    
                                 </tr>
                             @endforeach
                             </tbody>

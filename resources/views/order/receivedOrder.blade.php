@@ -69,6 +69,7 @@
         <table id="orders" class='search-table table table-dark table-hover table-responsive-sm'>
           <tr>
             <th>Date</th>
+            <th>MRN</th>
             <th>Actual received from</th>
             <th>Stock Recieved</th>
             <th>actual stock</th>
@@ -79,6 +80,7 @@
           @foreach($receives as $receive)
           <tr class='table-active'>
             <td>{{ $receive->created_at  }}</td>
+            <td>{{ $receive->mrn_no  }}</td>
             <td>{{ $receive->actual_recieved_from  }}</td>
             <td>{{ $receive->recieved_stock  }}</td>
             <td>{{ $receive->actual_stock  }}</td>
